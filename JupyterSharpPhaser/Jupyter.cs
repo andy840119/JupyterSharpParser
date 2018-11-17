@@ -2,7 +2,7 @@
 
 namespace JupyterSharpPhaser
 {
-    public class Class1
+    public class Jupyter
     {
     }
 }
