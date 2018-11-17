@@ -5,6 +5,7 @@ using System.Text;
 
 namespace JupyterSharpPhaser.Syntax.Cell
 {
+    [JsonConverter(typeof(CellConverter))]
     public interface ICell
     {
         [JsonProperty("cell_type")]

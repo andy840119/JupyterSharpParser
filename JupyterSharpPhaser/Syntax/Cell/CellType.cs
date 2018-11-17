@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using System.Runtime.Serialization;
-using System.Text;
 
 namespace JupyterSharpPhaser.Syntax.Cell
 {
+    [JsonConverter(typeof(StringEnumConverter))]
     public enum CellType
     {
         [EnumMember(Value = "markdown")]

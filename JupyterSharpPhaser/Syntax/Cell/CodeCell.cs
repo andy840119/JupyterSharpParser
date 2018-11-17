@@ -24,4 +24,13 @@ namespace JupyterSharpPhaser.Syntax.Cell
         [JsonProperty("outputs")]
         public IList<string> Outputs { get; set; }
     }
+
+    public class CodeCellMetaData
+    {
+        [JsonProperty("collapsed")]
+        public bool Collapsed { get; set; }
+
+        [JsonProperty("autoscroll")]
+        public bool AutoScroll { get; set; }
+    }
 }
