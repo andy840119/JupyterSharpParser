@@ -1,4 +1,5 @@
 ﻿using Markdig.Renderers;
+using Markdig.Syntax;
 using System;
 using System.Collections.Generic;
 using System.Text;

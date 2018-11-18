@@ -10,7 +10,7 @@ namespace JupyterSharpPhaser.Test
         [TestMethod]
         public void TestMarkdownCell()
         {
-            var documentText = 
+            var documentText = Jupyter.Parse("");
         }
 
         #endregion

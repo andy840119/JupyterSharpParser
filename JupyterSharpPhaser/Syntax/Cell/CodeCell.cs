@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using JupyterSharpPhaser.Syntax.Cell.Output;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,19 +11,23 @@ namespace JupyterSharpPhaser.Syntax.Cell
         public CodeCell()
         {
             MetaData = new CodeCellMetaData();
-            Outputs = new List<string>();
+            Source = new List<string>();
+            Outputs = new List<IOutput>();
         }
 
         public CellType CellType => CellType.Code;
+
+        [JsonProperty("execution_count")]
+        public int ExecutionCount { get; set; }
 
         [JsonProperty("metadata")]
         public CodeCellMetaData MetaData { get; set; }
 
         [JsonProperty("source")]
-        public string Source { get; set; }
+        public IList<string> Source { get; set; }
 
         [JsonProperty("outputs")]
-        public IList<string> Outputs { get; set; }
+        public IList<IOutput> Outputs { get; set; }
     }
 
     public class CodeCellMetaData
