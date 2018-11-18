@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using System.ComponentModel;
 using System.Runtime.Serialization;
 
 namespace JupyterSharpPhaser.Syntax.Cell

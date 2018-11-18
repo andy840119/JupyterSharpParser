@@ -1,25 +1,34 @@
-﻿using Newtonsoft.Json;
+﻿using JupyterSharpPhaser.Common;
+using JupyterSharpPhaser.Extensions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace JupyterSharpPhaser.Syntax.Cell
 {
-    public class CellConverter : JsonConverter
+    public class CellConverter : JsonConverter<ICell>
     {
-        public override bool CanConvert(Type objectType)
+        protected override ICell Create(Type objectType, JObject jObject)
         {
-            throw new NotImplementedException();
-        }
+            var cellType = jObject.Value<string>("cell_type");
+            // 讀取JSON後產生對應物件實體
+            // 此處透過自訂Typename屬性內容判斷生成實體類別
+            switch (cellType.ToEnum<CellType>())
+            {
+                case CellType.Markdown:
+                    return new MarkdownCell();
 
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
-        {
-            throw new NotImplementedException();
-        }
+                case CellType.Code:
+                    return new CodeCell();
 
-        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
-        {
-            throw new NotImplementedException();
+                case CellType.Raw:
+                    return new RawCell();
+
+                default:
+                    return null;
+            }
         }
     }
 }

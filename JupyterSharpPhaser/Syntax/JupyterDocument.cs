@@ -27,7 +27,7 @@ namespace JupyterSharpPhaser.Syntax
         [JsonProperty("nbformat_minor")]
         public int NbFormatMinor { get; set; }
 
-        [JsonProperty("nbformat")]
+        [JsonProperty("cells")]
         public IList<ICell> Cells { get; set; }
     }
 }

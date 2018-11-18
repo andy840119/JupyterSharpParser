@@ -49,7 +49,6 @@ namespace JupyterSharpPhaser.Parsers
         private JupyterDocument Parse()
         {
             //TODO : Add MarkdownPipeline
-
             return JsonConvert.DeserializeObject<JupyterDocument>(_text);
         }
     }
