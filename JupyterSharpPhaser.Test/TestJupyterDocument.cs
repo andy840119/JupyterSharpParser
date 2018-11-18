@@ -44,6 +44,38 @@ namespace JupyterSharpPhaser.Test
         [TestMethod]
         public void TestCodeCell()
         {
+            var jupyterText = @"{
+  ""cells"": [
+    {
+        ""cell_type"": ""code"",
+        ""execution_count"": 7,
+        ""metadata"": {},
+        ""outputs"": [
+        {
+            ""data"": {
+                ""text/plain"": [
+                ""3""
+                ]
+            },
+            ""execution_count"": 7,
+            ""metadata"": {},
+            ""output_type"": ""execute_result""
+        }
+        ],
+        ""source"": [
+        ""1 * 3""
+        ]
+    }]
+}";
+            var documentText = Jupyter.Parse(jupyterText);
+            var codeCell = documentText.Cells.FirstOrDefault() as CodeCell;
+
+            Assert.AreEqual(CellType.Code, codeCell.CellType);//Type
+            Assert.AreEqual(7, codeCell.ExecutionCount);//ExecutionCount
+            Assert.AreEqual(false, codeCell.MetaData.Collapsed);//MetaData
+            Assert.AreEqual(false, codeCell.MetaData.AutoScroll);//MetaData
+            Assert.AreEqual(1, codeCell.Source.Count());//Source
+            Assert.AreEqual("1 * 3", codeCell.Source.LastOrDefault());//Source
         }
 
         [TestMethod]

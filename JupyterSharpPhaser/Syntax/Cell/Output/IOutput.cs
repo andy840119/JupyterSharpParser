@@ -5,6 +5,7 @@ using System.Text;
 
 namespace JupyterSharpPhaser.Syntax.Cell.Output
 {
+    [JsonConverter(typeof(OutputConverter))]
     public interface IOutput
     {
         [JsonProperty("output_type")]
