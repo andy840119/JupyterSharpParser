@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using JupyterSharpPhaser.Common;
+using JupyterSharpPhaser.Syntax.Cell.Common;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,7 +11,7 @@ namespace JupyterSharpPhaser.Syntax.Cell.Output
     {
         public ErrorOutput()
         {
-            Traceback = new List<string>();
+            Traceback = new Lines();
         }
 
         public OutputType OutputType => OutputType.Error;
@@ -21,6 +23,7 @@ namespace JupyterSharpPhaser.Syntax.Cell.Output
         public string Evalue { get; set; }
 
         [JsonProperty("traceback")]
-        public IList<string> Traceback { get; set; }
+        [JsonConverter(typeof(LinesConverter))]
+        public Lines Traceback { get; set; }
     }
 }

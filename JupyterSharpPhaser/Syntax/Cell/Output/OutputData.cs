@@ -1,4 +1,5 @@
 ﻿using JupyterSharpPhaser.Common;
+using JupyterSharpPhaser.Syntax.Cell.Common;
 using JupyterSharpPhaser.Syntax.Common;
 using Newtonsoft.Json;
 using System;
@@ -11,12 +12,13 @@ namespace JupyterSharpPhaser.Syntax.Cell.Output
     {
         public OutputData()
         {
+            Text = new Lines();
             ApplicationJson = new ApplicationJson();
         }
 
         [JsonProperty("text/plain")]
         [JsonConverter(typeof(LinesConverter))]
-        public string Text { get; set; }
+        public Lines Text { get; set; }
 
         [JsonProperty("image/png")]
         public string ImageData { get; set; }

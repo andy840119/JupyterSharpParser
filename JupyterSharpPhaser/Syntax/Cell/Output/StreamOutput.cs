@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using JupyterSharpPhaser.Common;
+using JupyterSharpPhaser.Syntax.Cell.Common;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,7 +11,7 @@ namespace JupyterSharpPhaser.Syntax.Cell.Output
     {
         public StreamOutput()
         {
-            Text = new List<string>();
+            Text = new Lines();
         }
 
         public OutputType OutputType => OutputType.Stream;
@@ -18,6 +20,7 @@ namespace JupyterSharpPhaser.Syntax.Cell.Output
         public string Name { get; set; }
 
         [JsonProperty("text")]
-        public IList<string> Text { get; set; }
+        [JsonConverter(typeof(LinesConverter))]
+        public Lines Text { get; set; }
     }
 }

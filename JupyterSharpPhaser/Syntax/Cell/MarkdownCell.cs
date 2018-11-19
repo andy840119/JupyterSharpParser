@@ -1,4 +1,5 @@
 ﻿using JupyterSharpPhaser.Common;
+using JupyterSharpPhaser.Parsers.Common;
 using JupyterSharpPhaser.Syntax.Cell.Common;
 using Markdig.Syntax;
 using Newtonsoft.Json;
@@ -10,16 +11,21 @@ namespace JupyterSharpPhaser.Syntax.Cell
 {
     public class MarkdownCell : ICell
     {
+        public MarkdownCell()
+        {
+            Source = new MarkdownDocument();
+        }
+
         public CellType CellType => CellType.Markdown;
 
         [JsonProperty("metadata")]
         public object Metadata { get; set; }
 
         [JsonProperty("source")]
-        [JsonConverter(typeof(LinesConverter))]
-        public Lines Source { get; set; }
+        [JsonConverter(typeof(MarkdownConvert))]
+        public MarkdownDocument Source { get; set; }
 
         [JsonIgnore]
-        public MarkdownDocument MarkdownDocument { get; set; }
+        public MarkdownDocument MarkdownDocument => Source;
     }
 }

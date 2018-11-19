@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using JupyterSharpPhaser.Syntax.Cell.Common;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,16 @@ namespace JupyterSharpPhaser.Common
     {
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            writer.WriteValue(value as string);
+            var lines = value as Lines;
+            
+            if(!lines.MultiLine)
+                writer.WriteValue(lines.Text as string);
+
+            //add \n
+            var array = lines.Select(x => x + "\n").ToList();
+
+            //TODO : export as array
+            writer.WriteValue(JsonConvert.SerializeObject(array));
         }
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
@@ -23,16 +33,23 @@ namespace JupyterSharpPhaser.Common
             if (reader.TokenType == JsonToken.Null)
                 return null;
 
-            var token = JToken.Load(reader);
+            var lines = new Lines();
 
+            var token = JToken.Load(reader);
             if (token.Type == JTokenType.Array)
             {
-                var arrayResult = string.Join("", token as JArray);
-                return arrayResult;
+                var arrayLines = token.Select(x => (string)x).ToList();
+                lines.AddRange(arrayLines);
+                lines.MultiLine = true;
+            }
+            else
+            {
+                var arrayLines = token.Value<string>().Split("\n").Select(x=> x + "\n").ToList();
+                lines.AddRange(arrayLines);
+                lines.MultiLine = false;
             }
 
-            string stringResult = token.Value<string>();
-            return stringResult;
+            return lines;
         }
 
         public override bool CanConvert(Type objectType)

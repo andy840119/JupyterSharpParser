@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using JupyterSharpPhaser.Common;
+using JupyterSharpPhaser.Syntax.Cell.Common;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,7 +12,7 @@ namespace JupyterSharpPhaser.Syntax.Cell
         public RawCell()
         {
             MetaData = new RawCellMetaData();
-            Source = new List<string>();
+            Source = new Lines();
         }
 
         public CellType CellType => CellType.Raw;
@@ -19,7 +21,8 @@ namespace JupyterSharpPhaser.Syntax.Cell
         public RawCellMetaData MetaData { get; set; }
 
         [JsonProperty("source")]
-        public IList<string> Source { get; set; }
+        [JsonConverter(typeof(LinesConverter))]
+        public Lines Source { get; set; }
     }
 
     public class RawCellMetaData

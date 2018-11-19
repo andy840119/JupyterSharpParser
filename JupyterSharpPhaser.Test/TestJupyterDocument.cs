@@ -1,6 +1,7 @@
 using JupyterSharpPhaser.Syntax.Cell;
 using JupyterSharpPhaser.Syntax.Cell.Output;
 using JupyterSharpPhaser.Test.Helpers;
+using Markdig.Syntax;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 
@@ -35,7 +36,8 @@ namespace JupyterSharpPhaser.Test
 
             Assert.AreEqual(CellType.Markdown, markdownCell.CellType);//Type
             Assert.AreEqual(typeof(Newtonsoft.Json.Linq.JObject), markdownCell.Metadata.GetType());//Metadata
-            Assert.AreEqual("# Python Crash Course\n", markdownCell.Source);//Text
+            Assert.AreEqual(4, markdownCell.Source.Count);//Text
+            Assert.IsTrue(markdownCell.Source.LastOrDefault() is HeadingBlock);//Text
         }
 
         #endregion

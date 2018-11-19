@@ -6,5 +6,8 @@ namespace JupyterSharpPhaser.Syntax.Cell.Common
 {
     public class Lines : List<string>
     {
+        public bool MultiLine { get; set; }
+
+        public string Text => string.Join('\n', this);
     }
 }
