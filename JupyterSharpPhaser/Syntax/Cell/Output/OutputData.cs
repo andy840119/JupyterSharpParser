@@ -9,12 +9,11 @@ namespace JupyterSharpPhaser.Syntax.Cell.Output
     {
         public OutputData()
         {
-            Text = new List<string>();
             ApplicationJson = new ApplicationJson();
         }
 
         [JsonProperty("text/plain")]
-        public IList<string> Text { get; set; }
+        public string Text { get; set; }
 
         [JsonProperty("image/png")]
         public string ImageData { get; set; }

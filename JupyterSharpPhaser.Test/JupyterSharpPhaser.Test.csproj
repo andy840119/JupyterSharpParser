@@ -17,6 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="JupyterDocument\01-Python Crash Course.ipynb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="JupyterDocument\Discover Sentiments in Tweets.ipynb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

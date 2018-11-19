@@ -13,6 +13,9 @@ namespace JupyterSharpPhaser.Syntax.Metadata
             LanguageInfo = new LanguageInfo();
         }
 
+        [JsonProperty("kernelspec")]
+        public KernelSpec KernelSpec { get; set; }
+
         [JsonProperty("kernel_info")]
         public KernelInfo KernelInfo { get; set; }
 

@@ -147,8 +147,7 @@ namespace JupyterSharpPhaser.Test
 
             Assert.AreEqual(OutputType.DisplayData, displayDataOutput.OutputType);//Type
             Assert.AreEqual("iVBORw0KGgoAAAANSUhEUgAAAT4AAAIXCAYAAAAFczJTAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz\nAAALEgAACxIB0t1...", displayDataOutput.Data.ImageData);//Data
-            Assert.AreEqual(1, displayDataOutput.Data.Text.Count());//Data
-            Assert.AreEqual("<matplotlib.figure.Figure at 0x7f0ce3512320>", displayDataOutput.Data.Text.LastOrDefault());//Data
+            Assert.AreEqual("<matplotlib.figure.Figure at 0x7f0ce3512320>", displayDataOutput.Data.Text);//Data
             Assert.AreEqual(null, displayDataOutput.MetaData.Image);//MetaData
         }
 
@@ -164,9 +163,7 @@ namespace JupyterSharpPhaser.Test
         ""outputs"": [
         {
             ""data"": {
-                ""text/plain"": [
-                ""3""
-                ]
+                ""text/plain"": ""Hello""
             },
             ""execution_count"": 7,
             ""metadata"": {},
@@ -185,8 +182,7 @@ namespace JupyterSharpPhaser.Test
             Assert.AreEqual(OutputType.ExecuteResult, codeOutput.OutputType);//Type
             Assert.AreEqual(7, codeOutput.ExecutionCount);//ExecutionCount
             Assert.AreEqual(null, codeOutput.MetaData.Image);//MetaData
-            Assert.AreEqual(1, codeOutput.Data.Text.Count());//Data
-            Assert.AreEqual("3", codeOutput.Data.Text.LastOrDefault());//Source
+            Assert.AreEqual("Hello", codeOutput.Data.Text);//Data
         }
 
         [TestMethod]
@@ -268,13 +264,35 @@ namespace JupyterSharpPhaser.Test
  ""nbformat"": 4,
  ""nbformat_minor"": 1
 }";
-            var documentText = Jupyter.Parse(jupyterText);
+            var document = Jupyter.Parse(jupyterText);
+            var kernelSpec = document.Metadata.KernelSpec;
+            var kernelInfo = document.Metadata.KernelInfo;
+            var languageInfo = document.Metadata.LanguageInfo;
 
-            Assert.AreEqual(OutputType.Error, documentText.Metadata.ke);//Type
-            Assert.AreEqual("TypeError", errorOutput.Ename);//Ename
-            Assert.AreEqual("'tuple' object does not support item assignment", errorOutput.Evalue);//Evalue
-            Assert.AreEqual(4, errorOutput.Traceback.Count());//Data
-            Assert.AreEqual(true, errorOutput.Traceback.LastOrDefault().Contains("'tuple' object does not support item assignment"));//Source
+            //Spec
+            Assert.AreEqual("Python 3", kernelSpec.DisplayName);
+            Assert.AreEqual("python", kernelSpec.Language);
+            Assert.AreEqual("python3", kernelSpec.Name);
+
+            //KernelInfo
+            Assert.AreEqual(null, kernelInfo.Name);
+
+            //LanguageInfo
+            Assert.AreEqual("ipython", languageInfo.CodemirrorMode.Name);
+            Assert.AreEqual("3", languageInfo.CodemirrorMode.Version);
+
+            Assert.AreEqual(".py", languageInfo.FileExtension);
+            Assert.AreEqual("text/x-python", languageInfo.MimeType);
+            Assert.AreEqual("python", languageInfo.Name);
+            Assert.AreEqual("python", languageInfo.NbconvertExporter);
+            Assert.AreEqual("ipython3", languageInfo.PygmentsLexer);
+            Assert.AreEqual("3.6.2", languageInfo.Version);
+
+            //NbFormat
+            Assert.AreEqual(4, document.NbFormat);
+
+            //NbFormatMinor
+            Assert.AreEqual(1, document.NbFormatMinor);
         }
 
         #endregion
@@ -288,6 +306,15 @@ namespace JupyterSharpPhaser.Test
             var document = Jupyter.Parse(jupyterText);
 
             Assert.IsTrue(document!=null);//Phase success
+        }
+
+        [TestMethod]
+        public void TestReadingJpyterDocument2()
+        {
+            var jupyterText = JupyterDocumentHelper.GetFileStringByFileName("01-Python Crash Course.ipynb");
+            var document = Jupyter.Parse(jupyterText);
+
+            Assert.IsTrue(document != null);//Phase success
         }
 
         #endregion
