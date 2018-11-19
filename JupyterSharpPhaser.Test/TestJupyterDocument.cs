@@ -1,5 +1,6 @@
 using JupyterSharpPhaser.Syntax.Cell;
 using JupyterSharpPhaser.Syntax.Cell.Output;
+using JupyterSharpPhaser.Test.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 
@@ -29,8 +30,8 @@ namespace JupyterSharpPhaser.Test
       ]
     }]
 }";
-            var documentText = Jupyter.Parse(jupyterText);
-            var markdownCell = documentText.Cells.FirstOrDefault() as MarkdownCell;
+            var document = Jupyter.Parse(jupyterText);
+            var markdownCell = document.Cells.FirstOrDefault() as MarkdownCell;
 
             Assert.AreEqual(CellType.Markdown, markdownCell.CellType);//Type
             Assert.AreEqual(typeof(Newtonsoft.Json.Linq.JObject), markdownCell.Metadata.GetType());//Metadata
@@ -68,8 +69,8 @@ namespace JupyterSharpPhaser.Test
         ]
     }]
 }";
-            var documentText = Jupyter.Parse(jupyterText);
-            var codeCell = documentText.Cells.FirstOrDefault() as CodeCell;
+            var document = Jupyter.Parse(jupyterText);
+            var codeCell = document.Cells.FirstOrDefault() as CodeCell;
 
             Assert.AreEqual(CellType.Code, codeCell.CellType);//Type
             Assert.AreEqual(7, codeCell.ExecutionCount);//ExecutionCount
@@ -103,8 +104,8 @@ namespace JupyterSharpPhaser.Test
   }
  ]
 }";
-            var documentText = Jupyter.Parse(jupyterText);
-            var codeCell = documentText.Cells.FirstOrDefault() as CodeCell;
+            var document = Jupyter.Parse(jupyterText);
+            var codeCell = document.Cells.FirstOrDefault() as CodeCell;
             var streamOutput = codeCell.Outputs.FirstOrDefault() as StreamOutput;
 
             Assert.AreEqual(OutputType.Stream, streamOutput.OutputType);//Type
@@ -116,6 +117,39 @@ namespace JupyterSharpPhaser.Test
         [TestMethod]
         public void TestCodeCellDisplayDataOutput()
         {
+            var jupyterText = @"{
+  ""cells"": [
+    {
+        ""cell_type"": ""code"",
+        ""execution_count"": 7,
+        ""metadata"": {
+            ""scrolled"": true,
+            ""collapsed"": false
+        },
+        ""outputs"": [
+        {
+            ""output_type"": ""display_data"",
+            ""data"": {
+                ""image/png"": ""iVBORw0KGgoAAAANSUhEUgAAAT4AAAIXCAYAAAAFczJTAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz\nAAALEgAACxIB0t1..."",
+                ""text/plain"": ""<matplotlib.figure.Figure at 0x7f0ce3512320>""
+            },
+            ""metadata"": {}
+        }
+        ],
+        ""source"": [
+        ""1 * 3""
+        ]
+    }]
+}";
+            var document = Jupyter.Parse(jupyterText);
+            var codeCell = document.Cells.FirstOrDefault() as CodeCell;
+            var displayDataOutput = codeCell.Outputs.FirstOrDefault() as DisplayDataOutput;
+
+            Assert.AreEqual(OutputType.DisplayData, displayDataOutput.OutputType);//Type
+            Assert.AreEqual("iVBORw0KGgoAAAANSUhEUgAAAT4AAAIXCAYAAAAFczJTAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz\nAAALEgAACxIB0t1...", displayDataOutput.Data.ImageData);//Data
+            Assert.AreEqual(1, displayDataOutput.Data.Text.Count());//Data
+            Assert.AreEqual("<matplotlib.figure.Figure at 0x7f0ce3512320>", displayDataOutput.Data.Text.LastOrDefault());//Data
+            Assert.AreEqual(null, displayDataOutput.MetaData.Image);//MetaData
         }
 
         [TestMethod]
@@ -144,8 +178,8 @@ namespace JupyterSharpPhaser.Test
         ]
     }]
 }";
-            var documentText = Jupyter.Parse(jupyterText);
-            var codeCell = documentText.Cells.FirstOrDefault() as CodeCell;
+            var document = Jupyter.Parse(jupyterText);
+            var codeCell = document.Cells.FirstOrDefault() as CodeCell;
             var codeOutput = codeCell.Outputs.FirstOrDefault() as ExecuteResultOutput;
 
             Assert.AreEqual(OutputType.ExecuteResult, codeOutput.OutputType);//Type
@@ -241,6 +275,19 @@ namespace JupyterSharpPhaser.Test
             Assert.AreEqual("'tuple' object does not support item assignment", errorOutput.Evalue);//Evalue
             Assert.AreEqual(4, errorOutput.Traceback.Count());//Data
             Assert.AreEqual(true, errorOutput.Traceback.LastOrDefault().Contains("'tuple' object does not support item assignment"));//Source
+        }
+
+        #endregion
+
+        #region File
+
+        [TestMethod]
+        public void TestReadingJpyterDocument1()
+        {
+            var jupyterText = JupyterDocumentHelper.GetFileStringByFileName("Discover Sentiments in Tweets.ipynb");
+            var document = Jupyter.Parse(jupyterText);
+
+            Assert.IsTrue(document!=null);//Phase success
         }
 
         #endregion

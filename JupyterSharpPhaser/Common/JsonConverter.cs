@@ -13,9 +13,12 @@ namespace JupyterSharpPhaser.Common
     /// <typeparam name="T"></typeparam>
     public abstract class JsonConverter<T> : JsonConverter
     {
-        // 產生物件實體邏輯(須依實際轉換需求進行實作)
-        // objectType: ReadJson中預期的物件實體類別型態
-        // jObject: 讀取到的JOSN物件
+        /// <summary>
+        /// Create T from Type and JObject
+        /// </summary>
+        /// <param name="objectType"></param>
+        /// <param name="jObject"></param>
+        /// <returns></returns>
         protected abstract T Create(Type objectType, JObject jObject);
 
         public override bool CanWrite => false;
@@ -30,6 +33,7 @@ namespace JupyterSharpPhaser.Common
         {
             if (reader.TokenType == JsonToken.Null)
                 return null;
+
             // Load JObject from stream 
             JObject jObject = JObject.Load(reader);
 
@@ -45,7 +49,6 @@ namespace JupyterSharpPhaser.Common
         public override void WriteJson(JsonWriter writer, object value,
             JsonSerializer serializer)
         {
-            // 在產生物件實體時不會用到
             throw new NotImplementedException();
         }
     }
