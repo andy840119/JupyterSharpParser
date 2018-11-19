@@ -11,7 +11,7 @@ namespace JupyterSharpPhaser.Common
     /// See :
     /// https://stackoverflow.com/a/45404471/4105113
     /// </summary>
-    public class ArrayToStringJsonConverter : JsonConverter
+    public class LinesConverter : JsonConverter
     {
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {

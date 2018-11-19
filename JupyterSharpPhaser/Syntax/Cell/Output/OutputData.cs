@@ -15,7 +15,7 @@ namespace JupyterSharpPhaser.Syntax.Cell.Output
         }
 
         [JsonProperty("text/plain")]
-        [JsonConverter(typeof(ArrayToStringJsonConverter))]
+        [JsonConverter(typeof(LinesConverter))]
         public string Text { get; set; }
 
         [JsonProperty("image/png")]
