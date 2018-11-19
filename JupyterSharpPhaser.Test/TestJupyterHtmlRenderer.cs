@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace JupyterSharpPhaser.Test
 {
     [TestClass]
-    public class TestJupyterHtmlPhaser
+    public class TestJupyterHtmlRenderer
     {
         #region MarkdownCell
 
