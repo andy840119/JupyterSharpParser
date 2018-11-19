@@ -116,6 +116,39 @@ namespace JupyterSharpPhaser.Test
         [TestMethod]
         public void TestCodeCellDisplayDataOutput()
         {
+            var jupyterText = @"{
+  ""cells"": [
+    {
+        ""cell_type"": ""code"",
+        ""execution_count"": 7,
+        ""metadata"": {
+            ""scrolled"": true,
+            ""collapsed"": false
+        },
+        ""outputs"": [
+        {
+            ""output_type"": ""display_data"",
+            ""data"": {
+                ""image/png"": ""iVBORw0KGgoAAAANSUhEUgAAAT4AAAIXCAYAAAAFczJTAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz\nAAALEgAACxIB0t1..."",
+                ""text/plain"": ""<matplotlib.figure.Figure at 0x7f0ce3512320>""
+            },
+            ""metadata"": {}
+        }
+        ],
+        ""source"": [
+        ""1 * 3""
+        ]
+    }]
+}";
+            var documentText = Jupyter.Parse(jupyterText);
+            var codeCell = documentText.Cells.FirstOrDefault() as CodeCell;
+            var displayDataOutput = codeCell.Outputs.FirstOrDefault() as DisplayDataOutput;
+
+            Assert.AreEqual(OutputType.DisplayData, displayDataOutput.OutputType);//Type
+            Assert.AreEqual("iVBORw0KGgoAAAANSUhEUgAAAT4AAAIXCAYAAAAFczJTAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz\nAAALEgAACxIB0t1...", displayDataOutput.Data.ImageData);//Data
+            Assert.AreEqual(1, displayDataOutput.Data.Text.Count());//Data
+            Assert.AreEqual("<matplotlib.figure.Figure at 0x7f0ce3512320>", displayDataOutput.Data.Text.LastOrDefault());//Data
+            Assert.AreEqual(null, displayDataOutput.MetaData.Image);//MetaData
         }
 
         [TestMethod]

@@ -16,4 +16,10 @@
     <ProjectReference Include="..\JupyterSharpPhaser\JupyterSharpPhaser.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="JupyterDocument\Discover Sentiments in Tweets.ipynb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
