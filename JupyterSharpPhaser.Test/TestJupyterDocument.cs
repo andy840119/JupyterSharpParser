@@ -158,6 +158,40 @@ namespace JupyterSharpPhaser.Test
         [TestMethod]
         public void TestCodeCellErrorOutput()
         {
+            var jupyterText = @"{
+  ""cells"": [
+    {
+   ""cell_type"": ""code"",
+   ""execution_count"": 44,
+   ""metadata"": {},
+   ""outputs"": [
+    {
+     ""ename"": ""TypeError"",
+     ""evalue"": ""'tuple' object does not support item assignment"",
+     ""output_type"": ""error"",
+     ""traceback"": [
+      ""\u001b[0;31m---------------------------------------------------------------------------\u001b[0m"",
+      ""\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)"",
+      ""\u001b[0;32m<ipython-input-44-97e4e33b36c2>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mt\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m0\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m'NEW'\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m"",
+      ""\u001b[0;31mTypeError\u001b[0m: 'tuple' object does not support item assignment""
+     ]
+    }
+   ],
+   ""source"": [
+    ""t[0] = 'NEW'""
+   ]
+  }
+ ]
+}";
+            var documentText = Jupyter.Parse(jupyterText);
+            var codeCell = documentText.Cells.FirstOrDefault() as CodeCell;
+            var errorOutput = codeCell.Outputs.FirstOrDefault() as ErrorOutput;
+
+            Assert.AreEqual(OutputType.Error, errorOutput.OutputType);//Type
+            Assert.AreEqual("TypeError", errorOutput.Ename);//Ename
+            Assert.AreEqual("'tuple' object does not support item assignment", errorOutput.Evalue);//Evalue
+            Assert.AreEqual(4, errorOutput.Traceback.Count());//Data
+            Assert.AreEqual(true, errorOutput.Traceback.LastOrDefault().Contains("'tuple' object does not support item assignment"));//Source
         }
 
         #endregion
@@ -177,7 +211,36 @@ namespace JupyterSharpPhaser.Test
         [TestMethod]
         public void TestMetadata()
         {
+            var jupyterText = @"{
+  ""metadata"": {
+  ""kernelspec"": {
+   ""display_name"": ""Python 3"",
+   ""language"": ""python"",
+   ""name"": ""python3""
+  },
+  ""language_info"": {
+   ""codemirror_mode"": {
+    ""name"": ""ipython"",
+    ""version"": 3
+   },
+   ""file_extension"": "".py"",
+   ""mimetype"": ""text/x-python"",
+   ""name"": ""python"",
+   ""nbconvert_exporter"": ""python"",
+   ""pygments_lexer"": ""ipython3"",
+   ""version"": ""3.6.2""
+  }
+ },
+ ""nbformat"": 4,
+ ""nbformat_minor"": 1
+}";
+            var documentText = Jupyter.Parse(jupyterText);
 
+            Assert.AreEqual(OutputType.Error, documentText.Metadata.ke);//Type
+            Assert.AreEqual("TypeError", errorOutput.Ename);//Ename
+            Assert.AreEqual("'tuple' object does not support item assignment", errorOutput.Evalue);//Evalue
+            Assert.AreEqual(4, errorOutput.Traceback.Count());//Data
+            Assert.AreEqual(true, errorOutput.Traceback.LastOrDefault().Contains("'tuple' object does not support item assignment"));//Source
         }
 
         #endregion
