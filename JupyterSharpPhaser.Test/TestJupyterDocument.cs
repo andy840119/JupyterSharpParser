@@ -112,7 +112,7 @@ namespace JupyterSharpPhaser.Test
             Assert.AreEqual(OutputType.Stream, streamOutput.OutputType);//Type
             Assert.AreEqual("stdout", streamOutput.Name);//Name
             Assert.AreEqual(1, streamOutput.Text.Count());//Text
-            Assert.AreEqual("hello\n", streamOutput.Text.LastOrDefault());//Text
+            Assert.AreEqual("hello", streamOutput.Text.LastOrDefault());//Text
         }
 
         [TestMethod]
@@ -148,7 +148,7 @@ namespace JupyterSharpPhaser.Test
 
             Assert.AreEqual(OutputType.DisplayData, displayDataOutput.OutputType);//Type
             Assert.AreEqual("iVBORw0KGgoAAAANSUhEUgAAAT4AAAIXCAYAAAAFczJTAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz\nAAALEgAACxIB0t1...", displayDataOutput.Data.ImageData);//Data
-            Assert.AreEqual("<matplotlib.figure.Figure at 0x7f0ce3512320>", displayDataOutput.Data.Text);//Data
+            Assert.AreEqual("<matplotlib.figure.Figure at 0x7f0ce3512320>", displayDataOutput.Data.TextPlain.Text);//Data
             Assert.AreEqual(null, displayDataOutput.MetaData.Image);//MetaData
         }
 
@@ -183,7 +183,7 @@ namespace JupyterSharpPhaser.Test
             Assert.AreEqual(OutputType.ExecuteResult, codeOutput.OutputType);//Type
             Assert.AreEqual(7, codeOutput.ExecutionCount);//ExecutionCount
             Assert.AreEqual(null, codeOutput.MetaData.Image);//MetaData
-            Assert.AreEqual("Hello", codeOutput.Data.Text);//Data
+            Assert.AreEqual("Hello", codeOutput.Data.TextPlain.Text);//Data
         }
 
         [TestMethod]

@@ -12,13 +12,13 @@ namespace JupyterSharpPhaser.Syntax.Cell.Output
     {
         public OutputData()
         {
-            Text = new Lines();
+            TextPlain = new Lines();
             ApplicationJson = new ApplicationJson();
         }
 
         [JsonProperty("text/plain")]
         [JsonConverter(typeof(LinesConverter))]
-        public Lines Text { get; set; }
+        public Lines TextPlain { get; set; }
 
         [JsonProperty("image/png")]
         public string ImageData { get; set; }

@@ -38,13 +38,13 @@ namespace JupyterSharpPhaser.Common
             var token = JToken.Load(reader);
             if (token.Type == JTokenType.Array)
             {
-                var arrayLines = token.Select(x => (string)x).ToList();
+                var arrayLines = token.Select(x => (string)x).Select(x => x.EndsWith("\n") ? x.TrimEnd() : x).ToList();
                 lines.AddRange(arrayLines);
                 lines.MultiLine = true;
             }
             else
             {
-                var arrayLines = token.Value<string>().Split("\n").Select(x=> x + "\n").ToList();
+                var arrayLines = token.Value<string>().Split("\n").ToList();
                 lines.AddRange(arrayLines);
                 lines.MultiLine = false;
             }
