@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using JupyterSharpPhaser.Common;
+using JupyterSharpPhaser.Syntax.Common;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,6 +15,7 @@ namespace JupyterSharpPhaser.Syntax.Cell.Output
         }
 
         [JsonProperty("text/plain")]
+        [JsonConverter(typeof(ArrayToStringJsonConverter))]
         public string Text { get; set; }
 
         [JsonProperty("image/png")]
