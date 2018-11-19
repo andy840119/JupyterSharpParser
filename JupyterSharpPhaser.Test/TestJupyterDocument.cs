@@ -1,5 +1,6 @@
 using JupyterSharpPhaser.Syntax.Cell;
 using JupyterSharpPhaser.Syntax.Cell.Output;
+using JupyterSharpPhaser.Test.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 
@@ -29,8 +30,8 @@ namespace JupyterSharpPhaser.Test
       ]
     }]
 }";
-            var documentText = Jupyter.Parse(jupyterText);
-            var markdownCell = documentText.Cells.FirstOrDefault() as MarkdownCell;
+            var document = Jupyter.Parse(jupyterText);
+            var markdownCell = document.Cells.FirstOrDefault() as MarkdownCell;
 
             Assert.AreEqual(CellType.Markdown, markdownCell.CellType);//Type
             Assert.AreEqual(typeof(Newtonsoft.Json.Linq.JObject), markdownCell.Metadata.GetType());//Metadata
@@ -68,8 +69,8 @@ namespace JupyterSharpPhaser.Test
         ]
     }]
 }";
-            var documentText = Jupyter.Parse(jupyterText);
-            var codeCell = documentText.Cells.FirstOrDefault() as CodeCell;
+            var document = Jupyter.Parse(jupyterText);
+            var codeCell = document.Cells.FirstOrDefault() as CodeCell;
 
             Assert.AreEqual(CellType.Code, codeCell.CellType);//Type
             Assert.AreEqual(7, codeCell.ExecutionCount);//ExecutionCount
@@ -103,8 +104,8 @@ namespace JupyterSharpPhaser.Test
   }
  ]
 }";
-            var documentText = Jupyter.Parse(jupyterText);
-            var codeCell = documentText.Cells.FirstOrDefault() as CodeCell;
+            var document = Jupyter.Parse(jupyterText);
+            var codeCell = document.Cells.FirstOrDefault() as CodeCell;
             var streamOutput = codeCell.Outputs.FirstOrDefault() as StreamOutput;
 
             Assert.AreEqual(OutputType.Stream, streamOutput.OutputType);//Type
@@ -140,8 +141,8 @@ namespace JupyterSharpPhaser.Test
         ]
     }]
 }";
-            var documentText = Jupyter.Parse(jupyterText);
-            var codeCell = documentText.Cells.FirstOrDefault() as CodeCell;
+            var document = Jupyter.Parse(jupyterText);
+            var codeCell = document.Cells.FirstOrDefault() as CodeCell;
             var displayDataOutput = codeCell.Outputs.FirstOrDefault() as DisplayDataOutput;
 
             Assert.AreEqual(OutputType.DisplayData, displayDataOutput.OutputType);//Type
@@ -177,8 +178,8 @@ namespace JupyterSharpPhaser.Test
         ]
     }]
 }";
-            var documentText = Jupyter.Parse(jupyterText);
-            var codeCell = documentText.Cells.FirstOrDefault() as CodeCell;
+            var document = Jupyter.Parse(jupyterText);
+            var codeCell = document.Cells.FirstOrDefault() as CodeCell;
             var codeOutput = codeCell.Outputs.FirstOrDefault() as ExecuteResultOutput;
 
             Assert.AreEqual(OutputType.ExecuteResult, codeOutput.OutputType);//Type
@@ -211,6 +212,19 @@ namespace JupyterSharpPhaser.Test
         public void TestMetadata()
         {
 
+        }
+
+        #endregion
+
+        #region File
+
+        [TestMethod]
+        public void TestReadingJpyterDocument1()
+        {
+            var jupyterText = JupyterDocumentHelper.GetFileStringByFileName("Discover Sentiments in Tweets.ipynb");
+            var document = Jupyter.Parse(jupyterText);
+
+            Assert.IsTrue(document!=null);//Phase success
         }
 
         #endregion
