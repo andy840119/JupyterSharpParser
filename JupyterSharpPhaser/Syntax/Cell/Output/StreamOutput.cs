@@ -7,7 +7,7 @@ using JupyterSharpPhaser.Parsers.Cell.Common;
 
 namespace JupyterSharpPhaser.Syntax.Cell.Output
 {
-    public class StreamOutput : IOutput
+    public class StreamOutput : IOutput , IJupyterObject
     {
         public StreamOutput()
         {

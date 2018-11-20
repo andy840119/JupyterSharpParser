@@ -4,7 +4,7 @@ using System.Text;
 
 namespace JupyterSharpPhaser.Syntax.Cell.Common
 {
-    public class Lines : List<string>
+    public class Lines : List<string> , IJupyterObject
     {
         public bool MultiLine { get; set; }
 

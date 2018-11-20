@@ -5,7 +5,7 @@ using System.Text;
 
 namespace JupyterSharpPhaser.Syntax.Cell.Output
 {
-    public class DisplayDataOutput : IOutput
+    public class DisplayDataOutput : IOutput , IJupyterObject
     {
         public DisplayDataOutput()
         {
