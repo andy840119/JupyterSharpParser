@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
+using JupyterSharpPhaser.Renderers.Json;
 using JupyterSharpPhaser.Syntax;
 using JupyterSharpPhaser.Test.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -14,8 +16,11 @@ namespace JupyterSharpPhaser.Test
 
         protected string ConvertDocumentToJson(JupyterDocument document)
         {
-            //TODO : Real convert
-            return "";
+            var writer = new StringWriter();
+            var renderer = new JsonRendrer(writer);
+            renderer.Render(document);
+            writer.Flush();
+            return writer.ToString();
         }
 
         #endregion

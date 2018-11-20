@@ -6,9 +6,9 @@ using System.Text;
 
 namespace JupyterSharpPhaser.Renderers.Html
 {
-    public class HtmlRenderer : RendererBase
+    public class HtmlRenderer : TextRendererBase
     {
-        public HtmlRenderer(TextWriter writer)
+        public HtmlRenderer(TextWriter writer) : base(writer)
         {
             // Default block renderers
             //ObjectRenderers.Add(new MarkdownCellRenderer());

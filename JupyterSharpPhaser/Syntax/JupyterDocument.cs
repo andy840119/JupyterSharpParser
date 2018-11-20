@@ -10,7 +10,7 @@ namespace JupyterSharpPhaser.Syntax
     /// See : 
     /// https://nbformat.readthedocs.io/en/latest/format_description.html#cell-types
     /// </summary>
-    public class JupyterDocument
+    public class JupyterDocument : IJupyterObject
     {
         public JupyterDocument()
         {
