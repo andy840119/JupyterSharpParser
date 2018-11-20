@@ -1,7 +1,7 @@
 ﻿using System;
 using JupyterSharpPhaser.Syntax.Cell;
 
-namespace JupyterSharpPhaser.Renderers.Html.Renderer
+namespace JupyterSharpPhaser.Renderers.Html.Renderer.Cell
 {
     public class MarkdownCellRenderer : HtmlObjectRenderer<MarkdownCell>
     {

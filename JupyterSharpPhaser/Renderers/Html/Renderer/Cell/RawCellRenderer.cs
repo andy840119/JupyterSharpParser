@@ -1,11 +1,7 @@
-﻿using JupyterSharpPhaser.Syntax.Cell;
-using Markdig.Renderers;
-using Markdig.Syntax;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
+using JupyterSharpPhaser.Syntax.Cell;
 
-namespace JupyterSharpPhaser.Renderers.Html.Renderer
+namespace JupyterSharpPhaser.Renderers.Html.Renderer.Cell
 {
     public class RawCellRenderer : HtmlObjectRenderer<RawCell>
     {

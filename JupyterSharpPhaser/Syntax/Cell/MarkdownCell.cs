@@ -1,11 +1,10 @@
-﻿using JupyterSharpPhaser.Common;
-using JupyterSharpPhaser.Parsers.Common;
-using JupyterSharpPhaser.Syntax.Cell.Common;
+﻿using JupyterSharpPhaser.Syntax.Cell.Common;
 using Markdig.Syntax;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using JupyterSharpPhaser.Parsers.Cell.Common;
 
 namespace JupyterSharpPhaser.Syntax.Cell
 {

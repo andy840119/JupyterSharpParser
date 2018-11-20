@@ -1,12 +1,10 @@
-﻿using JupyterSharpPhaser.Common;
+﻿using System;
 using JupyterSharpPhaser.Extensions;
-using Newtonsoft.Json;
+using JupyterSharpPhaser.Parsers.Common;
+using JupyterSharpPhaser.Syntax.Cell;
 using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace JupyterSharpPhaser.Syntax.Cell
+namespace JupyterSharpPhaser.Parsers.Cell
 {
     public class CellConverter : JsonConverter<ICell>
     {

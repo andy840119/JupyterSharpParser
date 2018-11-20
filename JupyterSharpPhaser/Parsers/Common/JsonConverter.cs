@@ -1,10 +1,8 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace JupyterSharpPhaser.Common
+namespace JupyterSharpPhaser.Parsers.Common
 {
     /// <summary>
     /// ref :

@@ -1,13 +1,9 @@
-﻿using JupyterSharpPhaser.Common;
+﻿using System;
 using JupyterSharpPhaser.Syntax.Cell.Common;
 using Markdig.Syntax;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace JupyterSharpPhaser.Parsers.Common
+namespace JupyterSharpPhaser.Parsers.Cell.Common
 {
     public class MarkdownConvert : LinesConverter
     {
