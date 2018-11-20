@@ -9,7 +9,19 @@ namespace JupyterSharpPhaser.Renderers.Html.Renderer.Cell.Output
     {
         protected override void Write(HtmlRenderer renderer, ExecuteResultOutput obj)
         {
-            throw new NotImplementedException();
+            renderer.WriteLine(@"<div class=""output_wrapper"">");
+            renderer.WriteLine(@"   <div class=""output"">");
+            renderer.WriteLine(@"       <div class=""output_area"">");
+            renderer.WriteLine(@"           <div class=""prompt output_prompt"">Out[" + obj.ExecutionCount + "]:</div>");
+            renderer.WriteLine(@"           <div class=""output_text output_subarea output_execute_result"">");
+
+            //Renderer lines
+            renderer.Render(obj.Data.TextPlain);
+
+            renderer.WriteLine(@"           </div>");
+            renderer.WriteLine(@"       </div>");
+            renderer.WriteLine(@"   </div>");
+            renderer.WriteLine(@"</div>");
         }
     }
 }

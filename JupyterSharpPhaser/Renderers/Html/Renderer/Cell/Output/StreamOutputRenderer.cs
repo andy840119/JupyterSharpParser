@@ -9,7 +9,7 @@ namespace JupyterSharpPhaser.Renderers.Html.Renderer.Cell.Output
     {
         protected override void Write(HtmlRenderer renderer, StreamOutput obj)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 }

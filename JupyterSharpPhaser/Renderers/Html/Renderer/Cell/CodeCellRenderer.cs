@@ -15,7 +15,7 @@ namespace JupyterSharpPhaser.Renderers.Html.Renderer.Cell
             //renderer outputs
             foreach (var output in obj.Outputs)
             {
-                //renderer.Render(output);
+                renderer.Render(output);
             }
 
             renderer.WriteLine(@"</div>");
@@ -28,13 +28,10 @@ namespace JupyterSharpPhaser.Renderers.Html.Renderer.Cell
             renderer.WriteLine(@"   <div class=""inner_cell"">");
             renderer.WriteLine(@"       <div class=""input_area"">");
             renderer.WriteLine(@"           <div class="" highlight hl-ipython3"">");
-            renderer.WriteLine(@"               <pre>");
-            renderer.WriteLine(@"                   <span></span>");
 
-            //TODO : renderer language style
-            renderer.WriteLine(@"                   <span class=""mi"">" + codeCell.Source.Text + "</span>");
+            //Renderer lines
+            renderer.Render(codeCell.Source);
 
-            renderer.WriteLine(@"               </pre>");
             renderer.WriteLine(@"           </div>");
             renderer.WriteLine(@"       </div>");
             renderer.WriteLine(@"   </div>");
