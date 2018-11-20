@@ -41,6 +41,12 @@ namespace JupyterSharpPhaser.Test
 
             //Two class's property should be equal
             Assert.IsTrue(ClassCompareHelper.PublicInstancePropertiesEqual(document, document2));
+
+            //Change name
+            document2.Metadata.KernelInfo.Name = "AAAA";
+
+            //Should not equal
+            Assert.IsFalse(ClassCompareHelper.PublicInstancePropertiesEqual(document, document2));
         }
 
         [TestMethod]
@@ -56,7 +62,7 @@ namespace JupyterSharpPhaser.Test
             var document2 = Jupyter.Parse(documentJson);
 
             //Two class's property should be equal
-            Assert.IsTrue(ClassCompareHelper.PublicInstancePropertiesEqual(document, document2));
+            Assert.IsTrue(ClassCompareHelper.PublicInstancePropertiesEqual(document, document2,"MarkdownDocument"));
         }
 
         #endregion

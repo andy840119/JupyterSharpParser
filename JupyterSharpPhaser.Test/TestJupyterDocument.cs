@@ -36,8 +36,8 @@ namespace JupyterSharpPhaser.Test
 
             Assert.AreEqual(CellType.Markdown, markdownCell.CellType);//Type
             Assert.AreEqual(typeof(Newtonsoft.Json.Linq.JObject), markdownCell.Metadata.GetType());//Metadata
-            Assert.AreEqual(4, markdownCell.Source.Count);//Text
-            Assert.IsTrue(markdownCell.Source.LastOrDefault() is HeadingBlock);//Text
+            Assert.AreEqual(4, markdownCell.MarkdownDocument.Count);//Text
+            Assert.IsTrue(markdownCell.MarkdownDocument.LastOrDefault() is HeadingBlock);//Text
         }
 
         #endregion

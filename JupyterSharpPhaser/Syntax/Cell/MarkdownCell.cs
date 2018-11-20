@@ -12,7 +12,7 @@ namespace JupyterSharpPhaser.Syntax.Cell
     {
         public MarkdownCell()
         {
-            Source = new MarkdownDocument();
+            Source = new Lines();
         }
 
         public CellType CellType => CellType.Markdown;
@@ -21,10 +21,10 @@ namespace JupyterSharpPhaser.Syntax.Cell
         public object Metadata { get; set; }
 
         [JsonProperty("source")]
-        [JsonConverter(typeof(MarkdownConvert))]
-        public MarkdownDocument Source { get; set; }
+        [JsonConverter(typeof(LinesConverter))]
+        public Lines Source { get; set; }
 
         [JsonIgnore]
-        public MarkdownDocument MarkdownDocument => Source;
+        public MarkdownDocument MarkdownDocument => Markdig.Markdown.Parse(Source.Text);
     }
 }
