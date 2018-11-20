@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 
 namespace JupyterSharpPhaser.Test.Helpers
 {
-    public class ClassCompareHelper
+    public class CompareHelper
     {
         /// <summary>
         /// See :
@@ -50,6 +51,14 @@ namespace JupyterSharpPhaser.Test.Helpers
                 return true;
             }
             return self == to;
+        }
+
+        public static bool CompareWithJsonFormat<T>(T self, T to) where T : class
+        {
+            var selfString = JsonConvert.SerializeObject(self);
+            var toString = JsonConvert.SerializeObject(to);
+
+            return selfString == toString;
         }
     }
 }

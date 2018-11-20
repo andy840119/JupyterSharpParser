@@ -11,8 +11,8 @@ namespace JupyterSharpPhaser.Parsers.Cell.Output
         protected override IOutput Create(Type objectType, JObject jObject)
         {
             var cellType = jObject.Value<string>("output_type");
-            // 讀取JSON後產生對應物件實體
-            // 此處透過自訂Typename屬性內容判斷生成實體類別
+
+            // select cell from type
             switch (cellType.ToEnum<OutputType>())
             {
                 case OutputType.Stream:
