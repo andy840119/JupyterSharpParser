@@ -5,12 +5,7 @@ namespace JupyterSharpPhaser.Renderers.Html.Renderer.Cell
 {
     public class CodeCellRenderer : HtmlObjectRenderer<CodeCell>
     {
-        public bool Accept(RendererBase renderer, CodeCell obj)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Write(RendererBase renderer, CodeCell objectToRender)
+        protected override void Write(HtmlRenderer renderer, CodeCell obj)
         {
             throw new NotImplementedException();
         }
