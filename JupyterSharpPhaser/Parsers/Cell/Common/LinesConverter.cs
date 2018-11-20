@@ -15,15 +15,20 @@ namespace JupyterSharpPhaser.Parsers.Cell.Common
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
             var lines = value as Lines;
-            
-            if(!lines.MultiLine)
+
+            if (!lines.MultiLine)
+            {
                 writer.WriteValue(lines.Text as string);
+            }
+            else
+            {
+                //add \n
+                var array = lines.Select(x => x + "\n").ToList();
+                var arrayString = JsonConvert.SerializeObject(array);
 
-            //add \n
-            var array = lines.Select(x => x + "\n").ToList();
-
-            //TODO : export as array
-            writer.WriteValue(JsonConvert.SerializeObject(array));
+                //TODO : export as array
+                writer.WriteValue(arrayString);
+            }
         }
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
@@ -42,7 +47,7 @@ namespace JupyterSharpPhaser.Parsers.Cell.Common
             }
             else
             {
-                var arrayLines = token.Value<string>().Split("\n").ToList();
+                var arrayLines = token.Value<string>().Split('\n').ToList();
                 lines.AddRange(arrayLines);
                 lines.MultiLine = false;
             }

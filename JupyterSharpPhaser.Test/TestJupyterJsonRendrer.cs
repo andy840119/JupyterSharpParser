@@ -43,6 +43,22 @@ namespace JupyterSharpPhaser.Test
             Assert.IsTrue(ClassCompareHelper.PublicInstancePropertiesEqual(document, document2));
         }
 
+        [TestMethod]
+        public void TestReadingJpyterDocument2()
+        {
+            var jupyterText = JupyterDocumentHelper.GetFileStringByFileName("01-Python Crash Course.ipynb");
+            var document = Jupyter.Parse(jupyterText);
+
+            //convert to json
+            var documentJson = ConvertDocumentToJson(document);
+
+            //convert to document again
+            var document2 = Jupyter.Parse(documentJson);
+
+            //Two class's property should be equal
+            Assert.IsTrue(ClassCompareHelper.PublicInstancePropertiesEqual(document, document2));
+        }
+
         #endregion
     }
 }

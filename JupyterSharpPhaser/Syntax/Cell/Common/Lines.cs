@@ -8,6 +8,6 @@ namespace JupyterSharpPhaser.Syntax.Cell.Common
     {
         public bool MultiLine { get; set; }
 
-        public string Text => string.Join('\n', this);
+        public string Text => string.Join("\n", this);
     }
 }
