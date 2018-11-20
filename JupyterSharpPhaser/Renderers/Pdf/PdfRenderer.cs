@@ -11,10 +11,12 @@ namespace JupyterSharpPhaser.Renderers.Pdf
     public class PdfRenderer : RendererBase
     {
         private readonly Stream _stream;
+        private readonly HtmlToPdf _htmlToPdf;
 
-        public PdfRenderer(Stream stream)
+        public PdfRenderer(Stream stream, HtmlToPdf htmlToPdf = null)
         {
             _stream = stream;
+            _htmlToPdf = htmlToPdf;
         }
 
         /// <summary>
@@ -32,7 +34,8 @@ namespace JupyterSharpPhaser.Renderers.Pdf
             string htmlString = writer.ToString();
 
             //Conver to pdf
-            HtmlToPdf convertor = new HtmlToPdf();
+            HtmlToPdf convertor = _htmlToPdf ?? CreateDefauleHtmlToPdf();
+
             var pdfFile = convertor.ConvertHtmlString(htmlString);
 
             //save
@@ -40,6 +43,14 @@ namespace JupyterSharpPhaser.Renderers.Pdf
 
             //return stream
             return _stream;
+        }
+
+        protected virtual HtmlToPdf CreateDefauleHtmlToPdf()
+        {
+            var newConvertor = new HtmlToPdf();
+            newConvertor.Options.MarginTop = 30;
+            newConvertor.Options.MarginBottom = 30;
+            return newConvertor;
         }
     }
 }
