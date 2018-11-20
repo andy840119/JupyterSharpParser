@@ -85,13 +85,7 @@ namespace JupyterSharpPhaser.Renderers.Html
                 //Cells
                 foreach (var cell in jupyterDocument.Cells)
                 {
-                    WriteLine(@"            <div class=""cell border-box-sizing text_cell rendered""><div class=""prompt input_prompt""></div>");
-                    WriteLine(@"                <div class=""inner_cell"">");
-
                     base.Render(cell);
-
-                    WriteLine(@"                </div>");
-                    WriteLine(@"            </div>");
                 }
                     
                 //Body(Emd)

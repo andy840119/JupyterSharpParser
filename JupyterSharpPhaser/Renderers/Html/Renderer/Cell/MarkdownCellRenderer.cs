@@ -10,8 +10,15 @@ namespace JupyterSharpPhaser.Renderers.Html.Renderer.Cell
     {
         protected override void Write(HtmlRenderer renderer, MarkdownCell obj)
         {
+            renderer.WriteLine(@"<div class=""cell border-box-sizing text_cell rendered"">");
+            renderer.WriteLine(@"   <div class=""prompt input_prompt""></div>");
+            renderer.WriteLine(@"   <div class=""inner_cell"">");
+
             var htmlText = GetMarkdownRendererFromMarkdownDocument(obj.MarkdownDocument);
             renderer.WriteLine(htmlText);
+
+            renderer.WriteLine(@"   </div>");
+            renderer.WriteLine(@"</div>");
         }
 
         protected string GetMarkdownRendererFromMarkdownDocument(MarkdownDocument document)
