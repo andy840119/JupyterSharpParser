@@ -7,7 +7,7 @@ namespace JupyterSharpPhaser.Renderers.Html.Renderer.Cell
     {
         protected override void Write(HtmlRenderer renderer, MarkdownCell obj)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 }

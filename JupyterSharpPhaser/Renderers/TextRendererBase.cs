@@ -51,6 +51,16 @@ namespace JupyterSharpPhaser.Renderers
         }
 
         /// <summary>
+        /// Writes the specified content.
+        /// </summary>
+        /// <param name="content">The content.</param>
+        /// <returns>This instance</returns>
+        public void WriteLine(string content)
+        {
+            Writer.WriteLine(content);
+        }
+
+        /// <summary>
         /// Renders the specified jupyter object (returns the <see cref="Writer"/> as a render object).
         /// </summary>
         /// <param name="jupyterObject">The jupyter object.</param>
