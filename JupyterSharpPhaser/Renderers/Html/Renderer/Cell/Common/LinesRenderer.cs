@@ -13,7 +13,7 @@ namespace JupyterSharpPhaser.Renderers.Html.Renderer.Cell.Common
             renderer.WriteLine(@"   <span></span>");
 
             //TODO : renderer language style
-            renderer.WriteLine(@"   <span class=""mi"">" + obj.Text + "</span>");
+            renderer.WriteLine(@"   <span>" + obj.Text + "</span>");
             renderer.WriteLine(@"</pre>");
         }
     }

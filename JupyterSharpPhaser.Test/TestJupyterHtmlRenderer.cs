@@ -51,6 +51,17 @@ namespace JupyterSharpPhaser.Test
         #region Other Document
 
         [TestMethod]
+        public void TestReadingJpyterDocument1()
+        {
+            var jupyterText = JupyterDocumentHelper.GetFileStringByFileName("Discover Sentiments in Tweets.ipynb");
+            var document = Jupyter.Parse(jupyterText);
+
+            //convert to html and open
+            ConvertDocumentToHtmlFile(document, "Discover Sentiments in Tweets.html", false);
+
+        }
+
+        [TestMethod]
         public void TestReadingJpyterDocument2()
         {
             var jupyterText = JupyterDocumentHelper.GetFileStringByFileName("01-Python Crash Course.ipynb");
