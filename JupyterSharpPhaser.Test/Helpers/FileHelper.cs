@@ -22,14 +22,12 @@ namespace JupyterSharpPhaser.Test.Helpers
                 Directory.CreateDirectory(_directoryName);
 
             //Delete file if exist
-            var fileFullPath = _directoryName = "/" + saveFileName;
+            var fileFullPath = _directoryName + "/" + saveFileName;
             if(File.Exists(fileFullPath))
                 File.Delete(fileFullPath);
 
             //create stream writer
             return new StreamWriter(File.Open(fileFullPath, FileMode.Create), Encoding.UTF8);
-
-           
         }
 
         /// <summary>
@@ -43,10 +41,10 @@ namespace JupyterSharpPhaser.Test.Helpers
                 return;
 
             //Delete file if exist
-            var fileFullPath = _directoryName = "/" + fileName;
+            var fileFullPath = _directoryName + "/" + fileName;
 
             //https://stackoverflow.com/questions/11365984/c-sharp-open-file-with-default-application-and-parameters
-            Process.Start(fileFullPath);
+            Process.Start("explorer.exe ",fileFullPath);
         }
     }
 }

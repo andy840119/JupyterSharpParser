@@ -7,7 +7,7 @@ using JupyterSharpPhaser.Parsers.Cell;
 namespace JupyterSharpPhaser.Syntax.Cell
 {
     [JsonConverter(typeof(CellConverter))]
-    public interface ICell
+    public interface ICell : IJupyterObject
     {
         [JsonProperty("cell_type")]
         CellType CellType { get; }

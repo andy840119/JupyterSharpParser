@@ -35,7 +35,7 @@ namespace JupyterSharpPhaser.Renderers.Html
         protected virtual void WriteHeader()
         {
             var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = "MyCompany.MyProduct.MyFile.txt";
+            var resourceName = "JupyterSharpPhaser.Resources.JupyterHead.html";
 
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             using (StreamReader reader = new StreamReader(stream))
@@ -51,10 +51,16 @@ namespace JupyterSharpPhaser.Renderers.Html
         protected void WriteHtmlBodyStart()
         {
             WriteLine("<body>");
+
+            WriteLine(@"    <div tabindex=""-1"" id=""notebook"" class=""border-box-sizing"">");
+            WriteLine(@"        <div class=""container"" id=""notebook-container"">");
         }
 
         protected void WriteHtmlBodyEnd()
         {
+            WriteLine(@"        </div>");
+            WriteLine(@"    </div>");
+
             WriteLine("</body>");
             WriteLine("</html>");
         }
@@ -79,7 +85,13 @@ namespace JupyterSharpPhaser.Renderers.Html
                 //Cells
                 foreach (var cell in jupyterDocument.Cells)
                 {
-                    base.Render(jupyterObject);
+                    WriteLine(@"            <div class=""cell border-box-sizing text_cell rendered""><div class=""prompt input_prompt""></div>");
+                    WriteLine(@"                <div class=""inner_cell"">");
+
+                    base.Render(cell);
+
+                    WriteLine(@"                </div>");
+                    WriteLine(@"            </div>");
                 }
                     
                 //Body(Emd)
