@@ -31,6 +31,26 @@ namespace JupyterSharpPhaser.Test.Helpers
         }
 
         /// <summary>
+        /// Create file stream
+        /// </summary>
+        /// <param name="saveFileName"></param>
+        /// <returns></returns>
+        public static Stream CreateStream(string saveFileName)
+        {
+            //create dictionary if not exist
+            if (!Directory.Exists(_directoryName))
+                Directory.CreateDirectory(_directoryName);
+
+            //Delete file if exist
+            var fileFullPath = Path.Combine(_directoryName, saveFileName);
+            if (File.Exists(fileFullPath))
+                File.Delete(fileFullPath);
+
+            //create stream writer
+            return new FileStream(fileFullPath, FileMode.CreateNew, FileAccess.Write);
+        }
+
+        /// <summary>
         /// Open file if exist
         /// </summary>
         /// <param name="fileName"></param>

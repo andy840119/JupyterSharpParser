@@ -10,10 +10,9 @@ namespace JupyterSharpPhaser.Renderers.Html.Renderer.Cell.Common
         protected override void Write(HtmlRenderer renderer, Lines obj)
         {
             renderer.WriteLine(@"<pre>");
-            renderer.WriteLine(@"   <span></span>");
 
             //TODO : renderer language style
-            renderer.WriteLine(@"   <span>" + obj.Text + "</span>");
+            renderer.WriteLine(@"<span>" + obj.Text + "</span>");
             renderer.WriteLine(@"</pre>");
         }
     }
