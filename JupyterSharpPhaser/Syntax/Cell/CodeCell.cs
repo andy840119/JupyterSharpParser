@@ -8,7 +8,7 @@ using System.Text;
 
 namespace JupyterSharpPhaser.Syntax.Cell
 {
-    public class CodeCell : ICell
+    public class CodeCell : ICell , IJupyterObject
     {
         public CodeCell()
         {

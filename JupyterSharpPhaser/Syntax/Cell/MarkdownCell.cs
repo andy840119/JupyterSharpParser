@@ -9,7 +9,7 @@ using System.Text;
 
 namespace JupyterSharpPhaser.Syntax.Cell
 {
-    public class MarkdownCell : ICell
+    public class MarkdownCell : ICell , IJupyterObject
     {
         public MarkdownCell()
         {

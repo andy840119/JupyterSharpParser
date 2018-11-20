@@ -7,7 +7,7 @@ using System.Text;
 
 namespace JupyterSharpPhaser.Syntax.Cell
 {
-    public class RawCell : ICell
+    public class RawCell : ICell , IJupyterObject
     {
         public RawCell()
         {

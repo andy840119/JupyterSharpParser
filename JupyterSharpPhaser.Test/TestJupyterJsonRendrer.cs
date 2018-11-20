@@ -7,6 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace JupyterSharpPhaser.Test
 {
+    [TestClass]
     public class TestJupyterJsonRendrer
     {
         #region Utilities
