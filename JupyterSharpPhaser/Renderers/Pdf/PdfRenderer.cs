@@ -1,4 +1,5 @@
-﻿using JupyterSharpPhaser.Renderers.Html;
+﻿using iText.Html2pdf;
+using JupyterSharpPhaser.Renderers.Html;
 using JupyterSharpPhaser.Syntax;
 using SelectPdf;
 using System;
@@ -34,12 +35,7 @@ namespace JupyterSharpPhaser.Renderers.Pdf
             string htmlString = writer.ToString();
 
             //Conver to pdf
-            HtmlToPdf convertor = _htmlToPdf ?? CreateDefauleHtmlToPdf();
-
-            var pdfFile = convertor.ConvertHtmlString(htmlString);
-
-            //save
-            pdfFile.Save(_stream);
+            HtmlConverter.ConvertToPdf(htmlString , _stream);
 
             //return stream
             return _stream;
