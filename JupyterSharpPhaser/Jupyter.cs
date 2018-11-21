@@ -1,7 +1,7 @@
-﻿using JupyterSharpPhaser.Parsers;
+﻿using System;
+using JupyterSharpPhaser.Parsers;
 using JupyterSharpPhaser.Syntax;
 using Markdig;
-using System;
 
 namespace JupyterSharpPhaser
 {

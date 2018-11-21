@@ -1,5 +1,6 @@
 ﻿using System;
 using JupyterSharpPhaser.Syntax.Cell.Common;
+using Markdig;
 using Markdig.Syntax;
 using Newtonsoft.Json;
 
@@ -22,7 +23,7 @@ namespace JupyterSharpPhaser.Parsers.Cell.Common
 
             //convert to document
             var markdowoText = lines.Text;
-            var document = Markdig.Markdown.Parse(markdowoText);
+            var document = Markdown.Parse(markdowoText);
 
             //return
             return document;

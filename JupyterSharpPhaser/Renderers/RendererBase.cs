@@ -1,17 +1,10 @@
-﻿using JupyterSharpPhaser.Syntax;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
+using JupyterSharpPhaser.Syntax;
 
 namespace JupyterSharpPhaser.Renderers
 {
     public abstract class RendererBase : IJupyterRenderer
     {
-        /// <summary>
-        /// Available 
-        /// </summary>
-        public ObjectRendererCollection ObjectRenderers { get; }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="RendererBase"/> class.
         /// </summary>
@@ -19,6 +12,11 @@ namespace JupyterSharpPhaser.Renderers
         {
             ObjectRenderers = new ObjectRendererCollection();
         }
+
+        /// <summary>
+        /// Available 
+        /// </summary>
+        public ObjectRendererCollection ObjectRenderers { get; }
 
         public abstract object Render(IJupyterObject jupyterObject);
 
@@ -29,32 +27,22 @@ namespace JupyterSharpPhaser.Renderers
         /// <param name="obj">The Jupyter object to write to this renderer.</param>
         public void Write<T>(T obj) where T : IJupyterObject
         {
-            if (obj == null)
-            {
-                return;
-            }
+            if (obj == null) return;
 
             var objectType = obj.GetType();
 
             IJupyterObjectRenderer selectedRenderer = null;
             foreach (var renderer in ObjectRenderers)
-            {
                 if (renderer.Accept(this, obj))
                 {
                     selectedRenderer = renderer;
                     break;
                 }
-            }
 
             if (selectedRenderer != null)
-            {
                 selectedRenderer.Write(this, obj);
-            }
             else
-            {
-                //Throw exception if renderer is not found
                 throw new ArgumentNullException(nameof(selectedRenderer) + " is not asigned!");
-            }
         }
     }
 }

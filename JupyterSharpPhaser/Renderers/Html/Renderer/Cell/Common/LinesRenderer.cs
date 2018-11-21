@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using JupyterSharpPhaser.Syntax.Cell.Common;
+﻿using JupyterSharpPhaser.Syntax.Cell.Common;
 
 namespace JupyterSharpPhaser.Renderers.Html.Renderer.Cell.Common
 {

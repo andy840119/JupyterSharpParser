@@ -1,16 +1,14 @@
-﻿using JupyterSharpPhaser.Syntax;
+﻿using System;
+using JupyterSharpPhaser.Syntax;
 using Markdig;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace JupyterSharpPhaser.Parsers
 {
     public class JupyterParser
     {
-        private readonly string _text;
         private readonly MarkdownPipeline _markdownPipeline;
+        private readonly string _text;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="JupyterParser" /> class.

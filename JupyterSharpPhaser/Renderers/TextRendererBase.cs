@@ -1,8 +1,6 @@
-﻿using JupyterSharpPhaser.Syntax;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.IO;
-using System.Text;
+using JupyterSharpPhaser.Syntax;
 
 namespace JupyterSharpPhaser.Renderers
 {
@@ -33,8 +31,8 @@ namespace JupyterSharpPhaser.Renderers
         /// <exception cref="System.ArgumentNullException">if the value is null</exception>
         public TextWriter Writer
         {
-            get { return writer; }
-            set { writer = value ?? throw new ArgumentNullException(nameof(value)); }
+            get => writer;
+            set => writer = value ?? throw new ArgumentNullException(nameof(value));
         }
 
         /// <summary>

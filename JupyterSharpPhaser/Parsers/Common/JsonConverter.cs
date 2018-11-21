@@ -11,6 +11,8 @@ namespace JupyterSharpPhaser.Parsers.Common
     /// <typeparam name="T"></typeparam>
     public abstract class JsonConverter<T> : JsonConverter
     {
+        public override bool CanWrite => false;
+
         /// <summary>
         /// Create T from Type and JObject
         /// </summary>
@@ -18,8 +20,6 @@ namespace JupyterSharpPhaser.Parsers.Common
         /// <param name="jObject"></param>
         /// <returns></returns>
         protected abstract T Create(Type objectType, JObject jObject);
-
-        public override bool CanWrite => false;
 
         public override bool CanConvert(Type objectType)
         {
@@ -33,10 +33,10 @@ namespace JupyterSharpPhaser.Parsers.Common
                 return null;
 
             // Load JObject from stream 
-            JObject jObject = JObject.Load(reader);
+            var jObject = JObject.Load(reader);
 
             // Create target object based on JObject 
-            T target = Create(objectType, jObject);
+            var target = Create(objectType, jObject);
 
             // Populate the object properties 
             serializer.Populate(jObject.CreateReader(), target);

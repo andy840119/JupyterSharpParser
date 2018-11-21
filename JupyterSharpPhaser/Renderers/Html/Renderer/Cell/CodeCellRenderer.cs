@@ -1,5 +1,4 @@
-﻿using System;
-using JupyterSharpPhaser.Syntax.Cell;
+﻿using JupyterSharpPhaser.Syntax.Cell;
 
 namespace JupyterSharpPhaser.Renderers.Html.Renderer.Cell
 {
@@ -13,10 +12,7 @@ namespace JupyterSharpPhaser.Renderers.Html.Renderer.Cell
             RendererInput(renderer, obj);
 
             //renderer outputs
-            foreach (var output in obj.Outputs)
-            {
-                renderer.Render(output);
-            }
+            foreach (var output in obj.Outputs) renderer.Render(output);
 
             renderer.WriteLine(@"</div>");
         }

@@ -1,9 +1,6 @@
 ﻿using JupyterSharpPhaser.Syntax;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Markdig.Renderers;
 using Markdig.Helpers;
+using Markdig.Renderers;
 
 namespace JupyterSharpPhaser.Renderers
 {
@@ -20,7 +17,10 @@ namespace JupyterSharpPhaser.Renderers
             TryWriters = new OrderedList<TryWriteDelegate>();
         }
 
-        public delegate bool TryWriteDelegate(TRenderer renderer, TObject obj);
+        /// <summary>
+        /// Gets the optional writers attached to this instance.
+        /// </summary>
+        public OrderedList<TryWriteDelegate> TryWriters { get; }
 
         public virtual bool Accept(RendererBase renderer, IJupyterObject obj)
         {
@@ -33,22 +33,14 @@ namespace JupyterSharpPhaser.Renderers
             var typedObj = (TObject) obj;
 
             // Try processing
-            for (int i = 0; i < TryWriters.Count; i++)
+            for (var i = 0; i < TryWriters.Count; i++)
             {
                 var tryWriter = TryWriters[i];
-                if (tryWriter(htmlRenderer, typedObj))
-                {
-                    return;
-                }
+                if (tryWriter(htmlRenderer, typedObj)) return;
             }
 
             Write(htmlRenderer, typedObj);
         }
-
-        /// <summary>
-        /// Gets the optional writers attached to this instance.
-        /// </summary>
-        public OrderedList<TryWriteDelegate> TryWriters { get; }
 
         /// <summary>
         /// Writes the specified Markdown object to the renderer.
@@ -56,5 +48,7 @@ namespace JupyterSharpPhaser.Renderers
         /// <param name="renderer">The renderer.</param>
         /// <param name="obj">The markdown object.</param>
         protected abstract void Write(TRenderer renderer, TObject obj);
+
+        public delegate bool TryWriteDelegate(TRenderer renderer, TObject obj);
     }
 }

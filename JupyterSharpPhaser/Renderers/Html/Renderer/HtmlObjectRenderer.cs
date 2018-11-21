@@ -1,7 +1,4 @@
 ﻿using JupyterSharpPhaser.Syntax;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace JupyterSharpPhaser.Renderers.Html.Renderer
 {

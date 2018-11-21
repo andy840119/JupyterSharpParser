@@ -1,13 +1,9 @@
-﻿using JupyterSharpPhaser.Renderers.Html.Renderer;
+﻿using System.IO;
+using System.Reflection;
 using JupyterSharpPhaser.Renderers.Html.Renderer.Cell;
 using JupyterSharpPhaser.Renderers.Html.Renderer.Cell.Common;
 using JupyterSharpPhaser.Renderers.Html.Renderer.Cell.Output;
 using JupyterSharpPhaser.Syntax;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Reflection;
-using System.Text;
 
 namespace JupyterSharpPhaser.Renderers.Html
 {
@@ -30,6 +26,36 @@ namespace JupyterSharpPhaser.Renderers.Html
             ObjectRenderers.Add(new StreamOutputRenderer());
         }
 
+        /// <summary>
+        /// Renders the specified jupyter object (returns the <see cref="Writer"/> as a render object).
+        /// </summary>
+        /// <param name="jupyterObject">The jupyter object.</param>
+        /// <returns></returns>
+        public override object Render(IJupyterObject jupyterObject)
+        {
+            if (jupyterObject is JupyterDocument jupyterDocument)
+            {
+                //Head
+                WriteHeader();
+
+                //Body(Start)
+                WriteHtmlBodyStart();
+
+                //Cells
+                foreach (var cell in jupyterDocument.Cells) base.Render(cell);
+
+                //Body(Emd)
+                WriteHtmlBodyEnd();
+            }
+            else
+            {
+                base.Render(jupyterObject);
+            }
+
+            //return writer
+            return Writer;
+        }
+
         #region Utilities
 
         protected virtual void WriteHeader()
@@ -37,10 +63,10 @@ namespace JupyterSharpPhaser.Renderers.Html
             var assembly = Assembly.GetExecutingAssembly();
             var resourceName = "JupyterSharpPhaser.Resources.JupyterHead.html";
 
-            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
-            using (StreamReader reader = new StreamReader(stream))
+            using (var stream = assembly.GetManifestResourceStream(resourceName))
+            using (var reader = new StreamReader(stream))
             {
-                string result = reader.ReadToEnd();
+                var result = reader.ReadToEnd();
 
                 WriteLine("<!DOCTYPE html>");
                 WriteLine("<html>");
@@ -66,38 +92,5 @@ namespace JupyterSharpPhaser.Renderers.Html
         }
 
         #endregion
-
-        /// <summary>
-        /// Renders the specified jupyter object (returns the <see cref="Writer"/> as a render object).
-        /// </summary>
-        /// <param name="jupyterObject">The jupyter object.</param>
-        /// <returns></returns>
-        public override object Render(IJupyterObject jupyterObject)
-        {
-            if (jupyterObject is JupyterDocument jupyterDocument)
-            {
-                //Head
-                WriteHeader();
-
-                //Body(Start)
-                WriteHtmlBodyStart();
-
-                //Cells
-                foreach (var cell in jupyterDocument.Cells)
-                {
-                    base.Render(cell);
-                }
-
-                //Body(Emd)
-                WriteHtmlBodyEnd();
-            }
-            else
-            {
-                base.Render(jupyterObject);
-            }
-
-            //return writer
-            return Writer;
-        }
     }
 }

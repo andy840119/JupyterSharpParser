@@ -1,8 +1,5 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using JupyterSharpPhaser.Syntax.Cell.Common;
+﻿using JupyterSharpPhaser.Syntax.Cell.Common;
+using Newtonsoft.Json;
 
 namespace JupyterSharpPhaser.Syntax.Cell.Output
 {

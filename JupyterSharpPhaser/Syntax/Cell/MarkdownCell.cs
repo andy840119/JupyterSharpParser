@@ -1,10 +1,8 @@
-﻿using JupyterSharpPhaser.Syntax.Cell.Common;
+﻿using JupyterSharpPhaser.Parsers.Cell.Common;
+using JupyterSharpPhaser.Syntax.Cell.Common;
+using Markdig;
 using Markdig.Syntax;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using JupyterSharpPhaser.Parsers.Cell.Common;
 
 namespace JupyterSharpPhaser.Syntax.Cell
 {
@@ -23,6 +21,6 @@ namespace JupyterSharpPhaser.Syntax.Cell
         [JsonConverter(typeof(LinesConverter))]
         public Lines Source { get; set; }
 
-        [JsonIgnore] public MarkdownDocument MarkdownDocument => Markdig.Markdown.Parse(Source.Text);
+        [JsonIgnore] public MarkdownDocument MarkdownDocument => Markdown.Parse(Source.Text);
     }
 }

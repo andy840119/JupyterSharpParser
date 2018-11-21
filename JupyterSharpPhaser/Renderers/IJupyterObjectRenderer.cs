@@ -1,9 +1,5 @@
 ﻿using JupyterSharpPhaser.Syntax;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Markdig.Renderers;
-using Markdig.Syntax;
 
 namespace JupyterSharpPhaser.Renderers
 {

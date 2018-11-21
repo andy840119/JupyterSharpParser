@@ -1,5 +1,4 @@
-﻿using System;
-using JupyterSharpPhaser.Syntax.Cell;
+﻿using JupyterSharpPhaser.Syntax.Cell;
 
 namespace JupyterSharpPhaser.Renderers.Html.Renderer.Cell
 {
