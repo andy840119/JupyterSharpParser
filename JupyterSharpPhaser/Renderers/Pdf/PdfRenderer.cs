@@ -33,13 +33,16 @@ namespace JupyterSharpPhaser.Renderers.Pdf
             writer.Flush();
             string htmlString = writer.ToString();
 
+            var Renderer = new IronPdf.HtmlToPdf();
+            var PDF = Renderer.RenderHtmlAsPdf(htmlString);
+            PDF.SaveAs("MyPdf.pdf");
+            /*
             //Conver to pdf
             HtmlToPdf convertor = _htmlToPdf ?? CreateDefauleHtmlToPdf();
-
             var pdfFile = convertor.ConvertHtmlString(htmlString);
-
             //save
             pdfFile.Save(_stream);
+            */
 
             //return stream
             return _stream;
