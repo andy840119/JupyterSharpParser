@@ -1,4 +1,5 @@
-﻿using JupyterSharpPhaser.Renderers.Html;
+﻿using DinkToPdf;
+using JupyterSharpPhaser.Renderers.Html;
 using JupyterSharpPhaser.Syntax;
 using SelectPdf;
 using System;
@@ -33,13 +34,30 @@ namespace JupyterSharpPhaser.Renderers.Pdf
             writer.Flush();
             string htmlString = writer.ToString();
 
-            //Conver to pdf
-            HtmlToPdf convertor = _htmlToPdf ?? CreateDefauleHtmlToPdf();
+            var converter = new BasicConverter(new PdfTools());
 
-            var pdfFile = convertor.ConvertHtmlString(htmlString);
+            //Conver to pdf
+            var doc = new HtmlToPdfDocument()
+            {
+                GlobalSettings = {
+                    ColorMode = ColorMode.Color,
+                    Orientation = Orientation.Landscape,
+                    PaperSize = PaperKind.A4Plus,
+                },
+                Objects = {
+                    new ObjectSettings() {
+                        PagesCount = true,
+                        HtmlContent =@"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In consectetur mauris eget ultrices  iaculis. Ut                               odio viverra, molestie lectus nec, venenatis turpis.",
+                        WebSettings = { DefaultEncoding = "utf-8" },
+                        HeaderSettings = { FontSize = 9, Right = "Page [page] of [toPage]", Line = true, Spacing = 2.812 }
+                    }
+                }
+            };
+
+            byte[] pdf = converter.Convert(doc);
 
             //save
-            pdfFile.Save(_stream);
+            _stream.Write(pdf,0,pdf.Length);
 
             //return stream
             return _stream;

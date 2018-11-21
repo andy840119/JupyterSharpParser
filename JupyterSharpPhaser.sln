@@ -5,28 +5,42 @@ VisualStudioVersion = 15.0.28307.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JupyterSharpPhaser", "JupyterSharpPhaser\JupyterSharpPhaser.csproj", "{313706FA-B7A2-4AC4-BCA0-27C2CCB7CBF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JupyterSharpPhaser.Web", "JupyterSharpPhaser.Web\JupyterSharpPhaser.Web.csproj", "{DCDDD61F-4C67-4EF6-8B42-025F67131776}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JupyterSharpPhaser.Web", "JupyterSharpPhaser.Web\JupyterSharpPhaser.Web.csproj", "{DCDDD61F-4C67-4EF6-8B42-025F67131776}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JupyterSharpPhaser.Test", "JupyterSharpPhaser.Test\JupyterSharpPhaser.Test.csproj", "{74B2C780-7178-47D0-BF6B-9AC87F3E7520}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JupyterSharpPhaser.Test", "JupyterSharpPhaser.Test\JupyterSharpPhaser.Test.csproj", "{74B2C780-7178-47D0-BF6B-9AC87F3E7520}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{313706FA-B7A2-4AC4-BCA0-27C2CCB7CBF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{313706FA-B7A2-4AC4-BCA0-27C2CCB7CBF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{313706FA-B7A2-4AC4-BCA0-27C2CCB7CBF1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{313706FA-B7A2-4AC4-BCA0-27C2CCB7CBF1}.Debug|x86.Build.0 = Debug|Any CPU
 		{313706FA-B7A2-4AC4-BCA0-27C2CCB7CBF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{313706FA-B7A2-4AC4-BCA0-27C2CCB7CBF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{313706FA-B7A2-4AC4-BCA0-27C2CCB7CBF1}.Release|x86.ActiveCfg = Release|Any CPU
+		{313706FA-B7A2-4AC4-BCA0-27C2CCB7CBF1}.Release|x86.Build.0 = Release|Any CPU
 		{DCDDD61F-4C67-4EF6-8B42-025F67131776}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DCDDD61F-4C67-4EF6-8B42-025F67131776}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCDDD61F-4C67-4EF6-8B42-025F67131776}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DCDDD61F-4C67-4EF6-8B42-025F67131776}.Debug|x86.Build.0 = Debug|Any CPU
 		{DCDDD61F-4C67-4EF6-8B42-025F67131776}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCDDD61F-4C67-4EF6-8B42-025F67131776}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCDDD61F-4C67-4EF6-8B42-025F67131776}.Release|x86.ActiveCfg = Release|Any CPU
+		{DCDDD61F-4C67-4EF6-8B42-025F67131776}.Release|x86.Build.0 = Release|Any CPU
 		{74B2C780-7178-47D0-BF6B-9AC87F3E7520}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{74B2C780-7178-47D0-BF6B-9AC87F3E7520}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74B2C780-7178-47D0-BF6B-9AC87F3E7520}.Debug|x86.ActiveCfg = Debug|x86
+		{74B2C780-7178-47D0-BF6B-9AC87F3E7520}.Debug|x86.Build.0 = Debug|x86
 		{74B2C780-7178-47D0-BF6B-9AC87F3E7520}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74B2C780-7178-47D0-BF6B-9AC87F3E7520}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74B2C780-7178-47D0-BF6B-9AC87F3E7520}.Release|x86.ActiveCfg = Release|x86
+		{74B2C780-7178-47D0-BF6B-9AC87F3E7520}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
