@@ -1,5 +1,6 @@
 ﻿using JupyterSharpPhaser.Renderers.Html;
 using JupyterSharpPhaser.Syntax;
+using OpenHtmlToPdf;
 using SelectPdf;
 using System;
 using System.Collections.Generic;
@@ -33,6 +34,19 @@ namespace JupyterSharpPhaser.Renderers.Pdf
             writer.Flush();
             string htmlString = writer.ToString();
 
+            var pdf = OpenHtmlToPdf.Pdf
+                .From(htmlString)
+                .OfSize(OpenHtmlToPdf.PaperSize.A4)
+                .WithTitle("Title")
+                .WithoutOutline()
+                .WithMargins(1.25.Centimeters())
+                .Portrait()
+                .Comressed()
+                .Content();
+
+            _stream.Write(pdf , 0 , pdf.Length);
+
+            /*
             //Conver to pdf
             HtmlToPdf convertor = _htmlToPdf ?? CreateDefauleHtmlToPdf();
 
@@ -40,6 +54,7 @@ namespace JupyterSharpPhaser.Renderers.Pdf
 
             //save
             pdfFile.Save(_stream);
+            */
 
             //return stream
             return _stream;
