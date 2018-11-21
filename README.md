@@ -1,4 +1,8 @@
 # JupyterSharpPhaser
+
+[![NuGet](https://img.shields.io/nuget/v/JupyterSharpPhaser.svg)](https://www.nuget.org/packages/JupyterSharpPhaser)
+[![NuGet](https://img.shields.io/nuget/dt/JupyterSharpPhaser.svg)](https://www.nuget.org/packages/JupyterSharpPhaser)
+
 Jupyter phaser written in C#
 
 Samlpe : 
@@ -23,7 +27,7 @@ var writer = new StringWriter();
 var renderer = new JsonRenderer(writer);
 
 // Renders Jupyter Document to Json (to the writer)
-renderer.Render(markdownDocument);
+renderer.Render(document);
 
 // Gets the rendered string
 var result = writer.ToString();
@@ -38,7 +42,7 @@ var writer = new StringWriter();
 var renderer = new HtmlRenderer(writer);
 
 // Renders Jupyter Document to Json (to the writer)
-renderer.Render(markdownDocument);
+renderer.Render(document);
 
 // Gets the rendered string
 var result = writer.ToString();
@@ -46,5 +50,16 @@ var result = writer.ToString();
 
 Convert To Pdf : 
 ```csharp
-//TODO : 
+//Note : Due to Select.HtmlToPdf.NetCore, PDF limited to most 5 page,
+//       And cannot work on other platform such as mac and linux.
+
+// Output
+using(var stream = new FileStream("fileName"))
+{
+    // Create a HTML Renderer and setup it with the pipeline
+    var renderer = new PdfRenderer(stream);
+
+    // Renders Jupyter Document to Json (to the writer)
+    renderer.Render(document);  
+}
 ```
