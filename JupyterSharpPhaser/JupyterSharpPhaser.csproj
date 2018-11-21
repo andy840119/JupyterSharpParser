@@ -17,6 +17,7 @@
   <ItemGroup>
     <PackageReference Include="Markdig" Version="0.15.4" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="NReco.PdfGenerator.LT" Version="1.1.15" />
     <PackageReference Include="Select.HtmlToPdf.NetCore" Version="18.4.0" />
   </ItemGroup>
 

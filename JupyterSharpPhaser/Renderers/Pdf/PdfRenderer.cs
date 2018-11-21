@@ -34,12 +34,12 @@ namespace JupyterSharpPhaser.Renderers.Pdf
             string htmlString = writer.ToString();
 
             //Conver to pdf
-            HtmlToPdf convertor = _htmlToPdf ?? CreateDefauleHtmlToPdf();
+            var htmlContent = String.Format("<body>Hello world: {0}</body>", 
+                DateTime.Now);
+            var htmlToPdf = new NReco.PdfGenerator.HtmlToPdfConverter();
+            var pdfBytes = htmlToPdf.GeneratePdf(htmlContent);
 
-            var pdfFile = convertor.ConvertHtmlString(htmlString);
-
-            //save
-            pdfFile.Save(_stream);
+            _stream.Write(pdfBytes,0,pdfBytes.Length);
 
             //return stream
             return _stream;
