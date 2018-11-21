@@ -1,8 +1,6 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Reflection;
-using System.Text;
+using Newtonsoft.Json;
 
 namespace JupyterSharpPhaser.Test.Helpers
 {
@@ -17,21 +15,20 @@ namespace JupyterSharpPhaser.Test.Helpers
         /// <param name="to"></param>
         /// <param name="ignore"></param>
         /// <returns></returns>
-        public static bool PublicInstancePropertiesEqual<T>(T self, T to, params string[] ignore) where T : class 
+        public static bool PublicInstancePropertiesEqual<T>(T self, T to, params string[] ignore) where T : class
         {
             if (self != null && to != null)
             {
-                Type type = self.GetType();
+                var type = self.GetType();
 
-                List<string> ignoreList = new List<string>(ignore);
+                var ignoreList = new List<string>(ignore);
                 var properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
 
-                foreach (PropertyInfo pi in properties)
-                {
+                foreach (var pi in properties)
                     if (!ignoreList.Contains(pi.Name))
                     {
-                        object selfValue = type.GetProperty(pi.Name).GetValue(self, null);
-                        object toValue = type.GetProperty(pi.Name).GetValue(to, null);
+                        var selfValue = type.GetProperty(pi.Name).GetValue(self, null);
+                        var toValue = type.GetProperty(pi.Name).GetValue(to, null);
 
                         if (selfValue == null)
                             return selfValue == null && toValue == null;
@@ -47,9 +44,10 @@ namespace JupyterSharpPhaser.Test.Helpers
                             return false;
                         }
                     }
-                }
+
                 return true;
             }
+
             return self == to;
         }
 

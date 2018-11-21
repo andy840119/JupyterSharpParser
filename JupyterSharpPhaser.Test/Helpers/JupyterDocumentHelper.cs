@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
+﻿using System.IO;
 
 namespace JupyterSharpPhaser.Test.Helpers
 {
@@ -15,7 +12,7 @@ namespace JupyterSharpPhaser.Test.Helpers
         public static string GetFileStringByFileName(string fileName)
         {
             // Open the text file using a stream reader.
-            using (StreamReader sr = new StreamReader("JupyterDocument/" + fileName))
+            using (var sr = new StreamReader("JupyterDocument/" + fileName))
             {
                 // Read the stream to a string, and write the string to the console.
                 var lines = sr.ReadToEnd();
