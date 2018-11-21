@@ -12,10 +12,11 @@ namespace JupyterSharpPhaser.Parsers.Common
     {
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            writer.WriteValue(((bool)value) ? "1" : "0");
+            writer.WriteValue(((bool) value) ? "1" : "0");
         }
 
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue,
+            JsonSerializer serializer)
         {
             if (reader.TokenType == JsonToken.Null)
                 return null;
@@ -23,7 +24,7 @@ namespace JupyterSharpPhaser.Parsers.Common
             var token = JToken.Load(reader);
 
             if (token.Type == JTokenType.Boolean)
-                return (bool)token;
+                return (bool) token;
             return token.ToString() != "0";
         }
 

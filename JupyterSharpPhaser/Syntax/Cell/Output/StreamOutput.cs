@@ -7,7 +7,7 @@ using JupyterSharpPhaser.Parsers.Cell.Common;
 
 namespace JupyterSharpPhaser.Syntax.Cell.Output
 {
-    public class StreamOutput : IOutput , IJupyterObject
+    public class StreamOutput : IOutput, IJupyterObject
     {
         public StreamOutput()
         {
@@ -16,8 +16,7 @@ namespace JupyterSharpPhaser.Syntax.Cell.Output
 
         public OutputType OutputType => OutputType.Stream;
 
-        [JsonProperty("name")]
-        public string Name { get; set; }
+        [JsonProperty("name")] public string Name { get; set; }
 
         [JsonProperty("text")]
         [JsonConverter(typeof(LinesConverter))]

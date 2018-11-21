@@ -12,7 +12,7 @@ namespace JupyterSharpPhaser.Renderers
     /// </summary>
     /// <typeparam name="TRenderer"></typeparam>
     /// <typeparam name="TObject"></typeparam>
-    public abstract class JupyterObjectRenderer<TRenderer, TObject> : IJupyterObjectRenderer 
+    public abstract class JupyterObjectRenderer<TRenderer, TObject> : IJupyterObjectRenderer
         where TRenderer : RendererBase where TObject : IJupyterObject
     {
         protected JupyterObjectRenderer()
@@ -29,8 +29,8 @@ namespace JupyterSharpPhaser.Renderers
 
         public virtual void Write(RendererBase renderer, IJupyterObject obj)
         {
-            var htmlRenderer = (TRenderer)renderer;
-            var typedObj = (TObject)obj;
+            var htmlRenderer = (TRenderer) renderer;
+            var typedObj = (TObject) obj;
 
             // Try processing
             for (int i = 0; i < TryWriters.Count; i++)

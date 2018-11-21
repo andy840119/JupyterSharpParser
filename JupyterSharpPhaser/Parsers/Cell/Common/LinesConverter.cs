@@ -31,7 +31,8 @@ namespace JupyterSharpPhaser.Parsers.Cell.Common
             }
         }
 
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue,
+            JsonSerializer serializer)
         {
             if (reader.TokenType == JsonToken.Null)
                 return null;
@@ -41,7 +42,7 @@ namespace JupyterSharpPhaser.Parsers.Cell.Common
             var token = JToken.Load(reader);
             if (token.Type == JTokenType.Array)
             {
-                var arrayLines = token.Select(x => (string)x).Select(x => x.EndsWith("\n") ? x.TrimEnd() : x).ToList();
+                var arrayLines = token.Select(x => (string) x).Select(x => x.EndsWith("\n") ? x.TrimEnd() : x).ToList();
                 lines.AddRange(arrayLines);
                 lines.MultiLine = true;
             }

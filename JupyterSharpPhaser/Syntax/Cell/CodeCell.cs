@@ -8,7 +8,7 @@ using JupyterSharpPhaser.Parsers.Cell.Common;
 
 namespace JupyterSharpPhaser.Syntax.Cell
 {
-    public class CodeCell : ICell , IJupyterObject
+    public class CodeCell : ICell, IJupyterObject
     {
         public CodeCell()
         {
@@ -19,26 +19,21 @@ namespace JupyterSharpPhaser.Syntax.Cell
 
         public CellType CellType => CellType.Code;
 
-        [JsonProperty("execution_count")]
-        public int ExecutionCount { get; set; }
+        [JsonProperty("execution_count")] public int ExecutionCount { get; set; }
 
-        [JsonProperty("metadata")]
-        public CodeCellMetaData MetaData { get; set; }
+        [JsonProperty("metadata")] public CodeCellMetaData MetaData { get; set; }
 
         [JsonProperty("source")]
         [JsonConverter(typeof(LinesConverter))]
         public Lines Source { get; set; }
 
-        [JsonProperty("outputs")]
-        public IList<IOutput> Outputs { get; set; }
+        [JsonProperty("outputs")] public IList<IOutput> Outputs { get; set; }
     }
 
     public class CodeCellMetaData
     {
-        [JsonProperty("collapsed")]
-        public bool Collapsed { get; set; }
+        [JsonProperty("collapsed")] public bool Collapsed { get; set; }
 
-        [JsonProperty("autoscroll")]
-        public bool AutoScroll { get; set; }
+        [JsonProperty("autoscroll")] public bool AutoScroll { get; set; }
     }
 }

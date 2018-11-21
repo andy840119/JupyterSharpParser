@@ -11,9 +11,8 @@ namespace JupyterSharpPhaser.Renderers.Json
     {
         public JsonRendrer(TextWriter writer) : base(writer)
         {
-
         }
-        
+
         /// <summary>
         /// Renders the specified jupyter object (returns the <see cref="Writer"/> as a render object).
         /// </summary>

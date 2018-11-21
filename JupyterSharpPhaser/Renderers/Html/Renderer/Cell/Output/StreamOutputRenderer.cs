@@ -9,7 +9,6 @@ namespace JupyterSharpPhaser.Renderers.Html.Renderer.Cell.Output
     {
         protected override void Write(HtmlRenderer renderer, StreamOutput obj)
         {
-
             renderer.WriteLine(@"<div class=""output_wrapper"">");
             renderer.WriteLine(@"   <div class=""output"">");
             renderer.WriteLine(@"       <div class=""output_area"">");

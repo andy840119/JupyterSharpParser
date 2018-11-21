@@ -11,6 +11,5 @@ namespace JupyterSharpPhaser.Renderers
     /// <seealso cref="Markdig.Helpers.OrderedList{Markdig.Renderers.IMarkdownObjectRenderer}" />
     public class ObjectRendererCollection : OrderedList<IJupyterObjectRenderer>
     {
-
     }
 }

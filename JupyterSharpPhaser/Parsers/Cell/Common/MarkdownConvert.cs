@@ -15,7 +15,8 @@ namespace JupyterSharpPhaser.Parsers.Cell.Common
             writer.WriteValue(merkdownTect);
         }
 
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue,
+            JsonSerializer serializer)
         {
             var lines = base.ReadJson(reader, objectType, existingValue, serializer) as Lines;
 

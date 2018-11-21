@@ -8,13 +8,10 @@ namespace JupyterSharpPhaser.Syntax.Cell
     [JsonConverter(typeof(StringEnumConverter))]
     public enum CellType
     {
-        [EnumMember(Value = "markdown")]
-        Markdown,
+        [EnumMember(Value = "markdown")] Markdown,
 
-        [EnumMember(Value = "code")]
-        Code,
+        [EnumMember(Value = "code")] Code,
 
-        [EnumMember(Value = "raw")]
-        Raw,
+        [EnumMember(Value = "raw")] Raw,
     }
 }

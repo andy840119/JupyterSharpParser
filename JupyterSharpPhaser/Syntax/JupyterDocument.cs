@@ -18,16 +18,12 @@ namespace JupyterSharpPhaser.Syntax
             Cells = new List<ICell>();
         }
 
-        [JsonProperty("metadata")]
-        public Metadata.Metadata Metadata { get; set; }
+        [JsonProperty("metadata")] public Metadata.Metadata Metadata { get; set; }
 
-        [JsonProperty("nbformat")]
-        public int NbFormat { get; set; }
+        [JsonProperty("nbformat")] public int NbFormat { get; set; }
 
-        [JsonProperty("nbformat_minor")]
-        public int NbFormatMinor { get; set; }
+        [JsonProperty("nbformat_minor")] public int NbFormatMinor { get; set; }
 
-        [JsonProperty("cells")]
-        public IList<ICell> Cells { get; set; }
+        [JsonProperty("cells")] public IList<ICell> Cells { get; set; }
     }
 }

@@ -21,10 +21,11 @@ namespace JupyterSharpPhaser.Renderers.Html.Renderer.Cell
             renderer.WriteLine(@"</div>");
         }
 
-        protected void RendererInput(HtmlRenderer renderer,CodeCell codeCell)
+        protected void RendererInput(HtmlRenderer renderer, CodeCell codeCell)
         {
             renderer.WriteLine(@"<div class=""input"">");
-            renderer.WriteLine(@"   <div class=""prompt input_prompt"">In&nbsp;[" + codeCell.ExecutionCount + @"]:</div>");
+            renderer.WriteLine(@"   <div class=""prompt input_prompt"">In&nbsp;[" + codeCell.ExecutionCount +
+                               @"]:</div>");
             renderer.WriteLine(@"   <div class=""inner_cell"">");
             renderer.WriteLine(@"       <div class=""input_area"">");
             renderer.WriteLine(@"           <div class="" highlight hl-ipython3"">");

@@ -45,7 +45,7 @@ namespace JupyterSharpPhaser.Renderers.Html
                 WriteLine("<!DOCTYPE html>");
                 WriteLine("<html>");
                 WriteLine(result);
-            } 
+            }
         }
 
         protected void WriteHtmlBodyStart()
@@ -87,7 +87,7 @@ namespace JupyterSharpPhaser.Renderers.Html
                 {
                     base.Render(cell);
                 }
-                    
+
                 //Body(Emd)
                 WriteHtmlBodyEnd();
             }

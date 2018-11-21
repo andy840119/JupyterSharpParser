@@ -7,7 +7,7 @@ using JupyterSharpPhaser.Parsers.Cell.Common;
 
 namespace JupyterSharpPhaser.Syntax.Cell
 {
-    public class RawCell : ICell , IJupyterObject
+    public class RawCell : ICell, IJupyterObject
     {
         public RawCell()
         {
@@ -17,8 +17,7 @@ namespace JupyterSharpPhaser.Syntax.Cell
 
         public CellType CellType => CellType.Raw;
 
-        [JsonProperty("metadata")]
-        public RawCellMetaData MetaData { get; set; }
+        [JsonProperty("metadata")] public RawCellMetaData MetaData { get; set; }
 
         [JsonProperty("source")]
         [JsonConverter(typeof(LinesConverter))]
@@ -27,7 +26,6 @@ namespace JupyterSharpPhaser.Syntax.Cell
 
     public class RawCellMetaData
     {
-        [JsonProperty("format")]
-        public string Format { get; set; }
+        [JsonProperty("format")] public string Format { get; set; }
     }
 }

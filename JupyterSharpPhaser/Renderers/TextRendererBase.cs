@@ -34,10 +34,7 @@ namespace JupyterSharpPhaser.Renderers
         public TextWriter Writer
         {
             get { return writer; }
-            set
-            {
-                writer = value ?? throw new ArgumentNullException(nameof(value));
-            }
+            set { writer = value ?? throw new ArgumentNullException(nameof(value)); }
         }
 
         /// <summary>

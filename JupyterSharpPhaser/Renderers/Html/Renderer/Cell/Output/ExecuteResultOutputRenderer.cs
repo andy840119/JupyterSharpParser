@@ -12,7 +12,8 @@ namespace JupyterSharpPhaser.Renderers.Html.Renderer.Cell.Output
             renderer.WriteLine(@"<div class=""output_wrapper"">");
             renderer.WriteLine(@"   <div class=""output"">");
             renderer.WriteLine(@"       <div class=""output_area"">");
-            renderer.WriteLine(@"           <div class=""prompt output_prompt"">Out[" + obj.ExecutionCount + "]:</div>");
+            renderer.WriteLine(@"           <div class=""prompt output_prompt"">Out[" + obj.ExecutionCount +
+                               "]:</div>");
             renderer.WriteLine(@"           <div class=""output_text output_subarea output_execute_result"">");
 
             //Renderer lines

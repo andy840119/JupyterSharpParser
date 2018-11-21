@@ -8,7 +8,7 @@ using JupyterSharpPhaser.Parsers.Cell.Common;
 
 namespace JupyterSharpPhaser.Syntax.Cell
 {
-    public class MarkdownCell : ICell , IJupyterObject
+    public class MarkdownCell : ICell, IJupyterObject
     {
         public MarkdownCell()
         {
@@ -17,14 +17,12 @@ namespace JupyterSharpPhaser.Syntax.Cell
 
         public CellType CellType => CellType.Markdown;
 
-        [JsonProperty("metadata")]
-        public object Metadata { get; set; }
+        [JsonProperty("metadata")] public object Metadata { get; set; }
 
         [JsonProperty("source")]
         [JsonConverter(typeof(LinesConverter))]
         public Lines Source { get; set; }
 
-        [JsonIgnore]
-        public MarkdownDocument MarkdownDocument => Markdig.Markdown.Parse(Source.Text);
+        [JsonIgnore] public MarkdownDocument MarkdownDocument => Markdig.Markdown.Parse(Source.Text);
     }
 }

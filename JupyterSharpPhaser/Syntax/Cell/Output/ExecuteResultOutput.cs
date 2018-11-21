@@ -5,7 +5,7 @@ using System.Text;
 
 namespace JupyterSharpPhaser.Syntax.Cell.Output
 {
-    public class ExecuteResultOutput : IOutput , IJupyterObject
+    public class ExecuteResultOutput : IOutput, IJupyterObject
     {
         public ExecuteResultOutput()
         {
@@ -15,13 +15,10 @@ namespace JupyterSharpPhaser.Syntax.Cell.Output
 
         public OutputType OutputType => OutputType.ExecuteResult;
 
-        [JsonProperty("execution_count")]
-        public int ExecutionCount { get; set; }
+        [JsonProperty("execution_count")] public int ExecutionCount { get; set; }
 
-        [JsonProperty("data")]
-        public OutputData Data { get; set; }
+        [JsonProperty("data")] public OutputData Data { get; set; }
 
-        [JsonProperty("metadata")]
-        public OutputMetaData MetaData { get; set; }
+        [JsonProperty("metadata")] public OutputMetaData MetaData { get; set; }
     }
 }
