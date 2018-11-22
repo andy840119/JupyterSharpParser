@@ -34,20 +34,42 @@ namespace JupyterSharpPhaser.Web.Controllers
         /// <param name="file"></param>
         /// <returns></returns>
         [HttpPost]
-        public IActionResult Upload(IFormFile file)
+        public IActionResult Post(IFormFile file)
         {
-            //get jupyter document raw text
-            var jupyterString = string.Empty;
-            using (var reader = new StreamReader(file.OpenReadStream()))
+
+            if (file == null)
             {
-                jupyterString = reader.ReadToEnd();  
+                ModelState.AddModelError("Error!","File is empty.");
+                return StatusCode(400);
             }
 
-            //convert to document
-            var document = Jupyter.Parse(jupyterString);
+            if (!file.FileName.EndsWith(".ipynb"))
+            {
+                ModelState.AddModelError("Error!","Upload Jupyter document file.");
+                return StatusCode(400);
+            }
 
-            //pass to preview method
-            return RedirectToAction("Preview", document);
+            try
+            {
+                //get jupyter document raw text
+                var jupyterString = string.Empty;
+                using (var reader = new StreamReader(file.OpenReadStream()))
+                {
+                    jupyterString = reader.ReadToEnd();  
+                }
+
+                //convert to document
+                var document = Jupyter.Parse(jupyterString);
+
+                //pass to preview method
+                return RedirectToAction("Preview", document);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                ModelState.AddModelError("Error!","Error occurred while pharsing the file");
+                return RedirectToAction("Index");
+            }
         }
 
         public IActionResult Preview(JupyterDocument jupyterDocument)

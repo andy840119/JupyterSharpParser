@@ -1,5 +1,8 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model JupyterPreviewModel
+<!--Preview Html Start-->
+<div>
+    @Html.Raw(Model.PreviewHtml);
+</div>
+<!--Preview Html End-->
+<!--Download Button start-->
+<!--Download Button End-->

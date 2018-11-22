@@ -1,0 +1,14 @@
+{
+  "name": "gijgo",
+  "homepage": "https://github.com/atatanasov/gijgo",
+  "version": "0.6.2",
+  "_release": "0.6.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.6.2",
+    "commit": "48f31faf10ad1c8c5fc4c8f1bf6c493990c1c037"
+  },
+  "_source": "https://github.com/atatanasov/gijgo.git",
+  "_target": "0.6.2",
+  "_originalSource": "gijgo"
+}

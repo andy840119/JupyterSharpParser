@@ -1,5 +1,29 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Jupyter convert online service";
 }
+
+
+<br />
+<div class="jumbotron">
+    <h1>Convert jupyter document to Html and pdf service</h1>
+    <br />
+    <p>Pleass upload the file first : )</p>
+    <br />
+    <!--上傳檔案開始-->
+    <form method="post" enctype="multipart/form-data" asp-controller="Jupyter" asp-action="Post">
+        <div class="form-group">
+            <input type="file" name="files" id="BSbtndanger"/>
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="Upload" />
+        </div>
+    </form>
+    <!--上傳檔案結束-->
+</div>
+
+<script type="text/javascript">
+    $('#BSbtndanger').filestyle({
+        buttonName : 'btn-danger',
+        buttonText : ' File selection'
+    });                       
+</script>

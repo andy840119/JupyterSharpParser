@@ -84,7 +84,7 @@ namespace JupyterSharpPhaser.Renderers.Html
             }
         }
 
-        protected void WriteHtmlBodyStart()
+        protected virtual void WriteHtmlBodyStart()
         {
             WriteLine("<body>");
 
@@ -92,7 +92,7 @@ namespace JupyterSharpPhaser.Renderers.Html
             WriteLine(@"        <div class=""container"" id=""notebook-container"">");
         }
 
-        protected void WriteHtmlBodyEnd()
+        protected virtual void WriteHtmlBodyEnd()
         {
             WriteLine(@"        </div>");
             WriteLine(@"    </div>");

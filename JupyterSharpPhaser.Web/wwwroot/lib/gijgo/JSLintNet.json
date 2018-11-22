@@ -1,0 +1,10 @@
+﻿{
+  "version": "2.0.3",
+  "ignore": [],
+  "options": {
+    "this": true,
+    "browser": true,
+    "for":  true
+  },
+  "globalVariables": []
+}

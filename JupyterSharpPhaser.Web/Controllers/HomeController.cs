@@ -12,6 +12,8 @@ namespace JupyterSharpPhaser.Web.Controllers
     {
         public IActionResult Index()
         {
+            //befire design homepage, just direct to Jupyter converter page
+            return RedirectToAction("Index", "Jupyter");
             return View();
         }
 
