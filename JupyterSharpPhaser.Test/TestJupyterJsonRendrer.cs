@@ -14,7 +14,7 @@ namespace JupyterSharpPhaser.Test
         protected string ConvertDocumentToJson(JupyterDocument document)
         {
             var writer = new StringWriter();
-            var renderer = new JsonRendrer(writer);
+            var renderer = new JsonRenderer(writer);
             renderer.Render(document);
             writer.Flush();
             return writer.ToString();

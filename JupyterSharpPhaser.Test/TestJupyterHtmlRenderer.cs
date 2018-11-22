@@ -14,7 +14,10 @@ namespace JupyterSharpPhaser.Test
         {
             using (var writer = FileHelper.CreateStreamWriter(fileName))
             {
-                var renderer = new HtmlRenderer(writer);
+                var renderer = new HtmlRenderer(writer)
+                {
+                    RendererHeaderAndFooter = true
+                };
                 renderer.Render(document);
             }
 

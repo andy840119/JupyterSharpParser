@@ -4,9 +4,9 @@ using Newtonsoft.Json;
 
 namespace JupyterSharpPhaser.Renderers.Json
 {
-    public class JsonRendrer : TextRendererBase
+    public class JsonRenderer : TextRendererBase
     {
-        public JsonRendrer(TextWriter writer) : base(writer)
+        public JsonRenderer(TextWriter writer) : base(writer)
         {
         }
 

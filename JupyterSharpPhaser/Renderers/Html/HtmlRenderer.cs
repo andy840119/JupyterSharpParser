@@ -9,8 +9,10 @@ namespace JupyterSharpPhaser.Renderers.Html
 {
     public class HtmlRenderer : TextRendererBase
     {
-        public HtmlRenderer(TextWriter writer) : base(writer)
+        public HtmlRenderer(TextWriter writer,bool rendererHeaderAndFooter = false) : base(writer)
         {
+            RendererHeaderAndFooter = rendererHeaderAndFooter;
+
             //Cell renderer
             ObjectRenderers.Add(new MarkdownCellRenderer());
             ObjectRenderers.Add(new CodeCellRenderer());
@@ -26,6 +28,8 @@ namespace JupyterSharpPhaser.Renderers.Html
             ObjectRenderers.Add(new StreamOutputRenderer());
         }
 
+        public bool RendererHeaderAndFooter { get; set; }
+
         /// <summary>
         /// Renders the specified jupyter object (returns the <see cref="Writer"/> as a render object).
         /// </summary>
@@ -35,17 +39,23 @@ namespace JupyterSharpPhaser.Renderers.Html
         {
             if (jupyterObject is JupyterDocument jupyterDocument)
             {
-                //Head
-                WriteHeader();
+                if (RendererHeaderAndFooter)
+                {
+                    //Head
+                    WriteHeader();
 
-                //Body(Start)
-                WriteHtmlBodyStart();
+                    //Body(Start)
+                    WriteHtmlBodyStart();
+                }
 
                 //Cells
                 foreach (var cell in jupyterDocument.Cells) base.Render(cell);
 
-                //Body(Emd)
-                WriteHtmlBodyEnd();
+                if (RendererHeaderAndFooter)
+                {
+                    //Body(End)
+                    WriteHtmlBodyEnd();
+                }
             }
             else
             {
