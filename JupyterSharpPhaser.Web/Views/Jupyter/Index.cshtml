@@ -1,8 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Jupyter convert online service";
 }
-
-
 <br />
 <div class="jumbotron">
     <h1>Convert jupyter document to Html and pdf service</h1>
@@ -12,7 +10,7 @@
     <!--上傳檔案開始-->
     <form method="post" enctype="multipart/form-data" asp-controller="Jupyter" asp-action="Post">
         <div class="form-group">
-            <input type="file" name="files" id="BSbtndanger"/>
+            <input type="file" name="file" id="BSbtndanger"/>
         </div>
         <div class="form-group">
             <input type="submit" class="btn btn-primary" value="Upload" />

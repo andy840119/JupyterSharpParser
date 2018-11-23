@@ -61,8 +61,25 @@ namespace JupyterSharpPhaser.Web.Controllers
                 //convert to document
                 var document = Jupyter.Parse(jupyterString);
 
-                //pass to preview method
-                return RedirectToAction("Preview", document);
+                //Html text
+                var htmlText = "";
+                using (var memoryStream = new MemoryStream())
+                {
+                    using (var writer = new StreamWriter(memoryStream))
+                    {
+                        var htmlRenderer = new HtmlRenderer(writer);
+                        htmlRenderer.Render(document);
+                        writer.Flush();
+                    }
+                    htmlText = System.Text.Encoding.UTF8.GetString(memoryStream.ToArray());
+                }
+
+                //return view
+                return View("Preview",new JupyterPreviewModel
+                {
+                    PreviewHtml = htmlText,
+                    PreviewJson = jupyterString
+                });
             }
             catch (Exception e)
             {
@@ -72,75 +89,61 @@ namespace JupyterSharpPhaser.Web.Controllers
             }
         }
 
-        public IActionResult Preview(JupyterDocument jupyterDocument)
-        {
-            //Html text
-            var htmlText = "";
-            using (var memoryStream = new MemoryStream())
-            using (var writer = new StreamWriter(memoryStream))
-            {
-                var htmlRenderer = new HtmlRenderer(writer);
-                htmlRenderer.Render(jupyterDocument);
-                htmlText = writer.ToString();
-            }
-
-            //Jupyter text
-            var jsonText = "";
-            using (var memoryStream = new MemoryStream())
-            using (var writer = new StreamWriter(memoryStream))
-            {
-                var jsonRenderer = new JsonRenderer(writer);
-                jsonRenderer.Render(jupyterDocument);
-                jsonText = writer.ToString();
-            }
-
-            //return view
-            return View(new JupyterPreviewModel
-            {
-                PreviewHtml = htmlText,
-                PreviewJson = jsonText
-            });
-        }
-
         [HttpPost]
-        public IActionResult DownloadToHtml(JupyterDocument jupyterDocument)
+        public IActionResult DownloadToHtml(JupyterPreviewModel model)
         {
-            string fileName = "jupyterDocument.html";
-
-            byte[] fileBytes = null;
-            using (var memoryStream = new MemoryStream())
+            var jupyterText = model.PreviewJson;
+            if (!string.IsNullOrEmpty(jupyterText))
             {
-                using (var writer = new StreamWriter(memoryStream))
+                //convert to document
+                var document = Jupyter.Parse(jupyterText);
+
+                //convert to html
+                string fileName = "jupyterDocument.html";
+                byte[] fileBytes = null;
+                using (var memoryStream = new MemoryStream())
                 {
-                    var htmlRenderer = new HtmlRenderer(writer)
+                    using (var writer = new StreamWriter(memoryStream))
                     {
-                        RendererHeaderAndFooter = true
-                    };
-                    htmlRenderer.Render(jupyterDocument);
+                        var htmlRenderer = new HtmlRenderer(writer)
+                        {
+                            RendererHeaderAndFooter = true
+                        };
+                        htmlRenderer.Render(document);
+                    }
+                    fileBytes = memoryStream.ToArray();
                 }
 
-                fileBytes = memoryStream.ToArray();
+                //diwnload
+                return File(fileBytes, "application/force-download", fileName);
             }
 
-            return File(fileBytes, "application/force-download", fileName);
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
-        public IActionResult DownloadToPdf(JupyterDocument jupyterDocument)
+        public IActionResult DownloadToPdf(JupyterPreviewModel model)
         {
-            string fileName = "jupyterDocument.pdf";
-
-            byte[] fileBytes = null;
-            using (var memoryStream = new MemoryStream())
+            var jupyterText = model.PreviewJson;
+            if (!string.IsNullOrEmpty(jupyterText))
             {
-                var htmlRenderer = new PdfRenderer(memoryStream);
+                //convert to document
+                var document = Jupyter.Parse(jupyterText);
 
-                htmlRenderer.Render(jupyterDocument);
+                //convert to html
+                string fileName = "jupyterDocument.pdf";
+                byte[] fileBytes = null;
+                using (var memoryStream = new MemoryStream())
+                {
+                    var htmlRenderer = new PdfRenderer(memoryStream);
+                    htmlRenderer.Render(document);
+                    fileBytes = memoryStream.ToArray();
+                }
 
-                fileBytes = memoryStream.ToArray();
+                return File(fileBytes, "application/force-download", fileName);
             }
-
-            return File(fileBytes, "application/force-download", fileName);
+           
+            return RedirectToAction("Index");
         }
 
         #endregion 

@@ -1,8 +1,24 @@
 ﻿@model JupyterPreviewModel
+@{
+
+}
 <!--Preview Html Start-->
-<div>
-    @Html.Raw(Model.PreviewHtml);
+<br />
+<div class="jumbotron">
+    <div style="overflow-y: scroll; height:400px;">
+        @Html.Raw(Model.PreviewHtml)
+    </div>
 </div>
 <!--Preview Html End-->
+
 <!--Download Button start-->
+<div>
+    <form method="post">
+        <div class="form-group">
+            <input hidden asp-for="PreviewJson" />
+            <button asp-action="DownloadToHtml" asp-controller="Jupyter" class="btn btn-primary">Download Html</button>
+            <button asp-action="DownloadToPdf" asp-controller="Jupyter" class="btn btn-primary">Download PDF</button>
+        </div>
+    </form>
+</div>
 <!--Download Button End-->

@@ -25,7 +25,10 @@ namespace JupyterSharpPhaser.Renderers.Pdf
         {
             //using HtmlRenderer to renderer Html file
             var writer = new StringWriter();
-            var renderer = new HtmlRenderer(writer);
+            var renderer = new HtmlRenderer(writer)
+            {
+                RendererHeaderAndFooter = true
+            };
             renderer.Render(jupyterObject);
             writer.Flush();
             var htmlString = writer.ToString();
