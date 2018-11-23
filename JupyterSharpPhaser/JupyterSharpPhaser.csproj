@@ -18,11 +18,11 @@ Base implement.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\JupyterHead.html" />
+    <None Remove="Resources\JupyterDefaultStyle.css" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Resources\JupyterHead.html">
+    <EmbeddedResource Include="Resources\JupyterDefaultStyle.css">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>

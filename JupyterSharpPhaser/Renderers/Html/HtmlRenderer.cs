@@ -42,7 +42,9 @@ namespace JupyterSharpPhaser.Renderers.Html
                 if (RendererHeaderAndFooter)
                 {
                     //Head
-                    WriteHeader();
+                    WriteHeaderStart();
+                    WriteCssPart();
+                    WriteHeaderEnd();
 
                     //Body(Start)
                     WriteHtmlBodyStart();
@@ -68,20 +70,64 @@ namespace JupyterSharpPhaser.Renderers.Html
 
         #region Utilities
 
-        protected virtual void WriteHeader()
+        protected virtual void WriteHeaderStart()
+        {
+            WriteLine("<!DOCTYPE html>");
+            WriteLine("<html>");
+            var beforeHeader = @"<head>
+    <meta charset=""utf-8"" />
+    <title>01-Python Crash Course</title>
+    <script src=""https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js""></script>
+    <script src=""https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js""></script>
+
+    <style type=""text/css"">";
+            WriteLine(beforeHeader);
+
+        }
+
+        protected virtual void WriteCssPart()
         {
             var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = "JupyterSharpPhaser.Resources.JupyterHead.html";
+            var resourceName = "JupyterSharpPhaser.Resources.JupyterDefaultStyle.css";
 
             using (var stream = assembly.GetManifestResourceStream(resourceName))
             using (var reader = new StreamReader(stream))
             {
                 var result = reader.ReadToEnd();
-
-                WriteLine("<!DOCTYPE html>");
-                WriteLine("<html>");
                 WriteLine(result);
             }
+        }
+
+        protected virtual void WriteHeaderEnd()
+        {
+            var afterHeader = @"<!-- Custom stylesheet, it must be in the same directory as the html file -->
+    <link rel=""stylesheet"" href=""custom.css"">
+
+    <!-- Loading mathjax macro -->
+    <!-- Load mathjax -->
+    <script src=""https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML""></script>
+    <!-- MathJax configuration -->
+    <script type=""text/x-mathjax-config"">
+        MathJax.Hub.Config({
+        tex2jax: {
+        inlineMath: [ ['$','$'], [""\\("",""\\)""] ],
+        displayMath: [ ['$$','$$'], [""\\["",""\\]""] ],
+        processEscapes: true,
+        processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        ""HTML-CSS"": {
+        styles: {'.MathJax_Display': {""margin"": 0}},
+        linebreaks: { automatic: true }
+        }
+        });
+    </script>
+    <!-- End of mathjax configuration -->
+</head>";
+
+            WriteLine(afterHeader);
         }
 
         protected virtual void WriteHtmlBodyStart()
