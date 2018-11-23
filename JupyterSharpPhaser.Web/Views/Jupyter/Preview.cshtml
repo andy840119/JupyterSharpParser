@@ -16,6 +16,7 @@
     <form method="post">
         <div class="form-group">
             <input hidden asp-for="PreviewJson" />
+            <button asp-action="PreviewHtml" asp-controller="Jupyter" class="btn btn-primary" target="_blank">Preview Html</button>
             <button asp-action="DownloadToHtml" asp-controller="Jupyter" class="btn btn-primary">Download Html</button>
             <button asp-action="DownloadToPdf" asp-controller="Jupyter" class="btn btn-primary">Download PDF</button>
         </div>
