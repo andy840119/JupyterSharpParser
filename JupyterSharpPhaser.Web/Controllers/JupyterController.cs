@@ -35,7 +35,7 @@ namespace JupyterSharpPhaser.Web.Controllers
         /// <param name="file"></param>
         /// <returns></returns>
         [HttpPost]
-        public IActionResult Post(IFormFile file)
+        public IActionResult Preview(IFormFile file)
         {
 
             if (file == null)
@@ -76,7 +76,7 @@ namespace JupyterSharpPhaser.Web.Controllers
                 }
 
                 //return view
-                return View("Preview",new JupyterPreviewModel
+                return View(new JupyterPreviewModel
                 {
                     PreviewHtml = htmlText,
                     PreviewJson = jupyterString
