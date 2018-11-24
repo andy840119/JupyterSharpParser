@@ -8,6 +8,7 @@ using JupyterSharpPhaser.Renderers.Html;
 using JupyterSharpPhaser.Renderers.Json;
 using JupyterSharpPhaser.Renderers.Pdf;
 using JupyterSharpPhaser.Syntax;
+using JupyterSharpPhaser.Web.Extensions;
 using JupyterSharpPhaser.Web.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -17,6 +18,23 @@ namespace JupyterSharpPhaser.Web.Controllers
 {
     public class JupyterController : Controller
     {
+        #region Utilities
+
+        protected string GetCssFromSelection(string selection)
+        {
+            var fullPath = "wwwroot/css/jupyter/" + selection + ".css";
+
+            using (var sr = new StreamReader(fullPath))
+            {
+                // Read the stream to a string, and write the string to the console.
+                var lines = sr.ReadToEnd();
+                return lines;
+            }
+
+        }
+
+        #endregion
+
         #region Methods
 
         /// <summary>
@@ -78,6 +96,7 @@ namespace JupyterSharpPhaser.Web.Controllers
                 //return view
                 return View(new JupyterPreviewModel
                 {
+                    StyleSelections = SelectListItemHelpers.EnumDropDownList(JupyterStyle.Chesterish),
                     PreviewHtml = htmlText,
                     PreviewJson = jupyterString
                 });
@@ -93,6 +112,9 @@ namespace JupyterSharpPhaser.Web.Controllers
         [HttpPost]
         public IActionResult PreviewHtml(JupyterPreviewModel model)
         {
+            if(string.IsNullOrEmpty(model.SelectedItem))
+                return RedirectToAction("Index");
+
             var jupyterText = model.PreviewJson;
             if (!string.IsNullOrEmpty(jupyterText))
             {
@@ -106,7 +128,8 @@ namespace JupyterSharpPhaser.Web.Controllers
                     {
                         var htmlRenderer = new HtmlRenderer(writer)
                         {
-                            RendererHeaderAndFooter = true
+                            RendererHeaderAndFooter = true,
+                            CssText = GetCssFromSelection(model.SelectedItem)
                         };
                         htmlRenderer.Render(document);
                     }

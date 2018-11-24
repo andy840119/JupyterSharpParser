@@ -30,6 +30,8 @@ namespace JupyterSharpPhaser.Renderers.Html
 
         public bool RendererHeaderAndFooter { get; set; }
 
+        public string CssText { get; set; }
+
         /// <summary>
         /// Renders the specified jupyter object (returns the <see cref="Writer"/> as a render object).
         /// </summary>
@@ -87,19 +89,28 @@ namespace JupyterSharpPhaser.Renderers.Html
 
         protected virtual void WriteCssPart()
         {
-            var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = "JupyterSharpPhaser.Resources.JupyterDefaultStyle.css";
-
-            using (var stream = assembly.GetManifestResourceStream(resourceName))
-            using (var reader = new StreamReader(stream))
+            if (string.IsNullOrEmpty(CssText))
             {
-                var result = reader.ReadToEnd();
-                WriteLine(result);
+                var assembly = Assembly.GetExecutingAssembly();
+                var resourceName = "JupyterSharpPhaser.Resources.JupyterDefaultStyle.css";
+
+                using (var stream = assembly.GetManifestResourceStream(resourceName))
+                using (var reader = new StreamReader(stream))
+                {
+                    var result = reader.ReadToEnd();
+                    WriteLine(result);
+                }
+            }
+            else
+            {
+                WriteLine(CssText);
             }
         }
 
         protected virtual void WriteHeaderEnd()
         {
+            WriteLine(" </style>");
+
             var afterHeader = @"<!-- Custom stylesheet, it must be in the same directory as the html file -->
     <link rel=""stylesheet"" href=""custom.css"">
 

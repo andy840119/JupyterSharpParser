@@ -1,11 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace JupyterSharpPhaser.Web.Models
 {
+    /// <summary>
+    /// See :
+    /// Theme downloaded from https://github.com/dunovank/jupyter-themes
+    /// </summary>
     public enum JupyterStyle
     {
+        [Description("Chesterish")]
+        Chesterish,
+
+        [Description("Grade3")]
+        Grade3,
+
+        [Description("Gruvboxd")]
+        Gruvboxd,
+
+        [Description("Gruvboxl")]
+        Gruvboxl,
+
+        [Description("Monokai")]
+        Monokai,
+
+        [Description("Oceans16")]
+        Oceans16,
+
+        [Description("Onedork")]
+        Onedork,
+
+        [Description("Solarizedd")]
+        Solarizedd,
+
+        [Description("Solarizedl")]
+        Solarizedl
     }
 }

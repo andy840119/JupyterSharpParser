@@ -1,7 +1,5 @@
 ﻿@model JupyterPreviewModel
-@{
-    //TODO : apply theme downloaded from https://github.com/dunovank/jupyter-themes
-}
+
 <!--Preview Html Start-->
 <br />
 <div class="jumbotron">
@@ -11,14 +9,27 @@
 </div>
 <!--Preview Html End-->
 
-<!--Download Button start-->
+<!--Download Button Start-->
 <div>
     <form method="post">
+        <input hidden asp-for="PreviewJson" />
         <div class="form-group">
-            <input hidden asp-for="PreviewJson" />
-            <button asp-action="PreviewHtml" asp-controller="Jupyter" class="btn btn-primary" target="_blank">Preview Html</button>
-            <button asp-action="DownloadToHtml" asp-controller="Jupyter" class="btn btn-primary">Download Html</button>
-            <button asp-action="DownloadToPdf" asp-controller="Jupyter" class="btn btn-primary">Download PDF</button>
+
+            <!--Preview Start-->
+            <select asp-items="Model.StyleSelections" asp-for="SelectedItem" class="form-control w-25 p-3"></select>
+            <button asp-action="PreviewHtml" asp-controller="Jupyter" class="btn btn-primary">
+                Preview Html
+            </button>
+
+            <!--Preview Start-->
+            <!--Download Start-->
+            <button asp-action="DownloadToHtml" asp-controller="Jupyter" class="btn btn-primary">
+                Download Html
+            </button>
+            <button asp-action="DownloadToPdf" asp-controller="Jupyter" class="btn btn-primary">
+                Download PDF
+            </button>
+            <!--Download End-->
         </div>
     </form>
 </div>
