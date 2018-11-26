@@ -2,6 +2,7 @@
 
 [![NuGet](https://img.shields.io/nuget/v/JupyterSharpPhaser.svg)](https://www.nuget.org/packages/JupyterSharpPhaser)
 [![NuGet](https://img.shields.io/nuget/dt/JupyterSharpPhaser.svg)](https://www.nuget.org/packages/JupyterSharpPhaser)
+[![NuGet](https://img.shields.io/badge/月子我婆-passed-ff69b4.svg)](https://github.com/andy840119/JupyterSharpPhaser)
 
 Jupyter phaser written in C#
 
