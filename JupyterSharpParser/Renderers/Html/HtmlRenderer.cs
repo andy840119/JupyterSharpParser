@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Reflection;
 using JupyterSharpParser.Renderers.Html.Renderer.Cell;
 using JupyterSharpParser.Renderers.Html.Renderer.Cell.Common;
@@ -28,9 +29,9 @@ namespace JupyterSharpParser.Renderers.Html
             ObjectRenderers.Add(new StreamOutputRenderer());
         }
 
-        public bool RendererHeaderAndFooter { get; set; }
+        public bool RendererHeaderAndFooter { private get; set; }
 
-        public string CssText { get; set; }
+        public string CssText { private get; set; }
 
         /// <summary>
         /// Renders the specified jupyter object (returns the <see cref="Writer"/> as a render object).
@@ -95,7 +96,7 @@ namespace JupyterSharpParser.Renderers.Html
                 var resourceName = "JupyterSharpParser.Resources.JupyterDefaultStyle.css";
 
                 using (var stream = assembly.GetManifestResourceStream(resourceName))
-                using (var reader = new StreamReader(stream))
+                using (var reader = new StreamReader(stream ?? throw new ArgumentNullException()))
                 {
                     var result = reader.ReadToEnd();
                     WriteLine(result);

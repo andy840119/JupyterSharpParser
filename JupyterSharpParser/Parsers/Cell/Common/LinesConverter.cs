@@ -16,9 +16,12 @@ namespace JupyterSharpParser.Parsers.Cell.Common
         {
             var lines = value as Lines;
 
+            if(lines == null)
+                throw new ArgumentNullException($"{nameof(lines)} cannot be null.");
+
             if (!lines.MultiLine)
             {
-                writer.WriteValue(lines.Text as string);
+                writer.WriteValue(lines.Text);
             }
             else
             {

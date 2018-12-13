@@ -42,7 +42,7 @@ namespace JupyterSharpParser.Parsers
         }
 
         /// <summary>
-        /// Parses the current <see cref="Reader"/> into a Jupyter <see cref="MarkdownDocument"/>.
+        /// Parses the current json text into a Jupyter document <see cref="MarkdownDocument"/>.
         /// </summary>
         /// <returns>A document instance</returns>
         private JupyterDocument Parse()

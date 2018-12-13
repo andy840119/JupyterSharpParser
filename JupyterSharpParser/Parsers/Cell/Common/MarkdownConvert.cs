@@ -11,9 +11,13 @@ namespace JupyterSharpParser.Parsers.Cell.Common
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
             var document = value as MarkdownDocument;
-            var merkdownTect = document.ToPositionText();
 
-            writer.WriteValue(merkdownTect);
+            if (document == null)
+                throw new ArgumentNullException($"{nameof(document)} cannot be null.");
+
+            var markdownText = document.ToPositionText();
+
+            writer.WriteValue(markdownText);
         }
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue,
@@ -21,9 +25,12 @@ namespace JupyterSharpParser.Parsers.Cell.Common
         {
             var lines = base.ReadJson(reader, objectType, existingValue, serializer) as Lines;
 
+            if (lines == null)
+                throw new ArgumentNullException($"{nameof(lines)} cannot be null.");
+
             //convert to document
-            var markdowoText = lines.Text;
-            var document = Markdown.Parse(markdowoText);
+            var markdownText = lines.Text;
+            var document = Markdown.Parse(markdownText);
 
             //return
             return document;
