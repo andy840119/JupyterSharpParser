@@ -6,7 +6,7 @@ namespace JupyterSharpParser.Renderers.Html.Renderer.Cell
     {
         protected override void Write(HtmlRenderer renderer, RawCell obj)
         {
-            //throw new NotImplementedException();
+            //TODO : Implement
         }
     }
 }
