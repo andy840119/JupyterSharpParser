@@ -34,7 +34,7 @@ namespace JupyterSharpParser.Renderers.Html
         public string CssText { private get; set; }
 
         /// <summary>
-        /// Renders the specified jupyter object (returns the <see cref="Writer"/> as a render object).
+        /// Renders the specified jupyter object (returns the <see cref="TextRendererBase.Writer"/> as a render object).
         /// </summary>
         /// <param name="jupyterObject">The jupyter object.</param>
         /// <returns></returns>

@@ -5,7 +5,7 @@ namespace JupyterSharpParser.Renderers
     public interface IJupyterRenderer
     {
         /// <summary>
-        /// Gets the object renderers that will render <see cref="Block"/> and <see cref="Inline"/> elements.
+        /// Gets the object renderers that will render <see cref="IJupyterObject"/> elements.
         /// </summary>
         ObjectRendererCollection ObjectRenderers { get; }
 

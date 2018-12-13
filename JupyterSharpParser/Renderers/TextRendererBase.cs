@@ -10,7 +10,7 @@ namespace JupyterSharpParser.Renderers
     /// <seealso cref="RendererBase" />
     public abstract class TextRendererBase : RendererBase
     {
-        private TextWriter writer;
+        private TextWriter _writer;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TextRendererBase"/> class.
@@ -31,8 +31,8 @@ namespace JupyterSharpParser.Renderers
         /// <exception cref="System.ArgumentNullException">if the value is null</exception>
         public TextWriter Writer
         {
-            get => writer;
-            set => writer = value ?? throw new ArgumentNullException(nameof(value));
+            get => _writer;
+            set => _writer = value ?? throw new ArgumentNullException(nameof(value));
         }
 
         /// <summary>
