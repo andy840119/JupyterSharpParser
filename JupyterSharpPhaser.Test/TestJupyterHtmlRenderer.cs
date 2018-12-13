@@ -1,7 +1,9 @@
-﻿using JupyterSharpPhaser.Test.Helpers;
+﻿using JupyterSharpParser.Renderers.Html;
+using JupyterSharpParser.Syntax;
+using JupyterSharpParser.Test.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace JupyterSharpPhaser.Test
+namespace JupyterSharpParser.Test
 {
     [TestClass]
     public class TestJupyterHtmlRenderer

@@ -1,10 +1,12 @@
 using System.Linq;
-using JupyterSharpPhaser.Test.Helpers;
+using JupyterSharpParser.Syntax.Cell;
+using JupyterSharpParser.Syntax.Cell.Output;
+using JupyterSharpParser.Test.Helpers;
 using Markdig.Syntax;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json.Linq;
 
-namespace JupyterSharpPhaser.Test
+namespace JupyterSharpParser.Test
 {
     [TestClass]
     public class TestJupyterDocument
@@ -89,7 +91,7 @@ namespace JupyterSharpPhaser.Test
             Assert.AreEqual("python3", kernelSpec.Name);
 
             //KernelInfo
-            Assert.AreEqual(null, kernelInfo.Name);
+            Assert.AreEqual((object) null, kernelInfo.Name);
 
             //LanguageInfo
             Assert.AreEqual("ipython", languageInfo.CodemirrorMode.Name);

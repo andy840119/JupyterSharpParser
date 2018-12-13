@@ -2,7 +2,7 @@
 using System.IO;
 using System.Text;
 
-namespace JupyterSharpPhaser.Test.Helpers
+namespace JupyterSharpParser.Test.Helpers
 {
     public class FileHelper
     {

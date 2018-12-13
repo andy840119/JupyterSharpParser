@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
+using JupyterSharpParser.Web.Models;
 using Microsoft.AspNetCore.Mvc;
-using JupyterSharpPhaser.Web.Models;
 
-namespace JupyterSharpPhaser.Web.Controllers
+namespace JupyterSharpParser.Web.Controllers
 {
     public class HomeController : Controller
     {

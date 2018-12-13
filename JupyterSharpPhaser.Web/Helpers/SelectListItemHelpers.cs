@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace JupyterSharpPhaser.Web.Extensions
+namespace JupyterSharpParser.Web.Helpers
 {
     public class SelectListItemHelpers
     {

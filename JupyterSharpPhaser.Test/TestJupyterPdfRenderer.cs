@@ -1,7 +1,9 @@
-﻿using JupyterSharpPhaser.Test.Helpers;
+﻿using JupyterSharpParser.Renderers.Pdf;
+using JupyterSharpParser.Syntax;
+using JupyterSharpParser.Test.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace JupyterSharpPhaser.Test
+namespace JupyterSharpParser.Test
 {
     [TestClass]
     public class TestJupyterPdfRenderer

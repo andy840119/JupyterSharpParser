@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace JupyterSharpPhaser.Test.Helpers
+namespace JupyterSharpParser.Test.Helpers
 {
     public class JupyterDocumentHelper
     {

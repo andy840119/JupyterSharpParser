@@ -1,16 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using JupyterSharpPhaser.Web.Extensions;
-using JupyterSharpPhaser.Web.Models;
+using JupyterSharpParser.Renderers.Html;
+using JupyterSharpParser.Renderers.Pdf;
+using JupyterSharpParser.Web.Helpers;
+using JupyterSharpParser.Web.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ActionConstraints;
 
-namespace JupyterSharpPhaser.Web.Controllers
+namespace JupyterSharpParser.Web.Controllers
 {
     public class JupyterController : Controller
     {

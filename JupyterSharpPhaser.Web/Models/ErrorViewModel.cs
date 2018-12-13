@@ -1,6 +1,4 @@
-using System;
-
-namespace JupyterSharpPhaser.Web.Models
+namespace JupyterSharpParser.Web.Models
 {
     public class ErrorViewModel
     {

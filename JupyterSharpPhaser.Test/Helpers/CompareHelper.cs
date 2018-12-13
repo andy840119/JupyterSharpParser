@@ -2,7 +2,7 @@
 using System.Reflection;
 using Newtonsoft.Json;
 
-namespace JupyterSharpPhaser.Test.Helpers
+namespace JupyterSharpParser.Test.Helpers
 {
     public class CompareHelper
     {

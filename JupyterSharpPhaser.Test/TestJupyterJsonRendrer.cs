@@ -1,8 +1,10 @@
 ﻿using System.IO;
-using JupyterSharpPhaser.Test.Helpers;
+using JupyterSharpParser.Renderers.Json;
+using JupyterSharpParser.Syntax;
+using JupyterSharpParser.Test.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace JupyterSharpPhaser.Test
+namespace JupyterSharpParser.Test
 {
     [TestClass]
     public class TestJupyterJsonRendrer
