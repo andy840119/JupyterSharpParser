@@ -1,6 +1,4 @@
 using System.Linq;
-using JupyterSharpPhaser.Syntax.Cell;
-using JupyterSharpPhaser.Syntax.Cell.Output;
 using JupyterSharpPhaser.Test.Helpers;
 using Markdig.Syntax;
 using Microsoft.VisualStudio.TestTools.UnitTesting;

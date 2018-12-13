@@ -1,6 +1,6 @@
-﻿using JupyterSharpPhaser.Syntax.Cell.Common;
+﻿using JupyterSharpParser.Syntax.Cell.Common;
 
-namespace JupyterSharpPhaser.Renderers.Html.Renderer.Cell.Common
+namespace JupyterSharpParser.Renderers.Html.Renderer.Cell.Common
 {
     public class LinesRenderer : HtmlObjectRenderer<Lines>
     {

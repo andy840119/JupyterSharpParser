@@ -1,11 +1,11 @@
 ﻿using System.IO;
 using System.Reflection;
-using JupyterSharpPhaser.Renderers.Html.Renderer.Cell;
-using JupyterSharpPhaser.Renderers.Html.Renderer.Cell.Common;
-using JupyterSharpPhaser.Renderers.Html.Renderer.Cell.Output;
-using JupyterSharpPhaser.Syntax;
+using JupyterSharpParser.Renderers.Html.Renderer.Cell;
+using JupyterSharpParser.Renderers.Html.Renderer.Cell.Common;
+using JupyterSharpParser.Renderers.Html.Renderer.Cell.Output;
+using JupyterSharpParser.Syntax;
 
-namespace JupyterSharpPhaser.Renderers.Html
+namespace JupyterSharpParser.Renderers.Html
 {
     public class HtmlRenderer : TextRendererBase
     {

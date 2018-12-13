@@ -1,10 +1,10 @@
 ﻿using System;
-using JupyterSharpPhaser.Syntax;
+using JupyterSharpParser.Syntax;
 using Markdig;
 using Markdig.Syntax;
 using Newtonsoft.Json;
 
-namespace JupyterSharpPhaser.Parsers
+namespace JupyterSharpParser.Parsers
 {
     public class JupyterParser
     {
@@ -14,9 +14,9 @@ namespace JupyterSharpPhaser.Parsers
         /// <summary>
         /// Initializes a new instance of the <see cref="JupyterParser" /> class.
         /// </summary>
-        /// <param name="text">The reader.</param>
+        /// <param name="text">The reader.</param
         /// <param name="pipeline">The pipeline.</param>
-        /// <exception cref="System.ArgumentNullException">
+        /// <exception cref="ArgumentNullException">
         /// </exception>
         public JupyterParser(string text, MarkdownPipeline pipeline)
         {

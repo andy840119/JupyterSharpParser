@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Runtime.Serialization;
 
-namespace JupyterSharpPhaser.Extensions
+namespace JupyterSharpParser.Extensions
 {
     public static class EnumExtension
     {

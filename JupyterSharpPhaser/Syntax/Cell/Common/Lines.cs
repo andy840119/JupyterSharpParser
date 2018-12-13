@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace JupyterSharpPhaser.Syntax.Cell.Common
+namespace JupyterSharpParser.Syntax.Cell.Common
 {
     public class Lines : List<string>, IJupyterObject
     {

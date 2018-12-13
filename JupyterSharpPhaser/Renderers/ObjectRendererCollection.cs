@@ -1,6 +1,6 @@
 ﻿using Markdig.Helpers;
 
-namespace JupyterSharpPhaser.Renderers
+namespace JupyterSharpParser.Renderers
 {
     /// <summary>
     /// A collection of <see cref="IJupyterObjectRenderer"/>.

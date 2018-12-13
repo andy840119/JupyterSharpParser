@@ -1,8 +1,8 @@
-﻿using JupyterSharpPhaser.Syntax;
+﻿using JupyterSharpParser.Syntax;
 using Markdig.Helpers;
 using Markdig.Renderers;
 
-namespace JupyterSharpPhaser.Renderers
+namespace JupyterSharpParser.Renderers
 {
     /// <summary>
     /// <see cref="MarkdownObjectRenderer{TRenderer,TObject}"/>

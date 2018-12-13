@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
-using JupyterSharpPhaser.Syntax.Cell.Common;
+using JupyterSharpParser.Syntax.Cell.Common;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace JupyterSharpPhaser.Parsers.Cell.Common
+namespace JupyterSharpParser.Parsers.Cell.Common
 {
     /// <summary>
     /// See :

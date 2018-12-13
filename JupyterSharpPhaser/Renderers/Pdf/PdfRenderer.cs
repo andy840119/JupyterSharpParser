@@ -1,9 +1,9 @@
 ﻿using System.IO;
-using JupyterSharpPhaser.Renderers.Html;
-using JupyterSharpPhaser.Syntax;
+using JupyterSharpParser.Renderers.Html;
+using JupyterSharpParser.Syntax;
 using SelectPdf;
 
-namespace JupyterSharpPhaser.Renderers.Pdf
+namespace JupyterSharpParser.Renderers.Pdf
 {
     public class PdfRenderer : RendererBase
     {

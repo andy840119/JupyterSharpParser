@@ -1,6 +1,4 @@
-﻿using JupyterSharpPhaser.Renderers.Pdf;
-using JupyterSharpPhaser.Syntax;
-using JupyterSharpPhaser.Test.Helpers;
+﻿using JupyterSharpPhaser.Test.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace JupyterSharpPhaser.Test

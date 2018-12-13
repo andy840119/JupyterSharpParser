@@ -1,10 +1,10 @@
-﻿using JupyterSharpPhaser.Parsers.Cell.Common;
-using JupyterSharpPhaser.Syntax.Cell.Common;
+﻿using JupyterSharpParser.Parsers.Cell.Common;
+using JupyterSharpParser.Syntax.Cell.Common;
 using Markdig;
 using Markdig.Syntax;
 using Newtonsoft.Json;
 
-namespace JupyterSharpPhaser.Syntax.Cell
+namespace JupyterSharpParser.Syntax.Cell
 {
     public class MarkdownCell : ICell, IJupyterObject
     {

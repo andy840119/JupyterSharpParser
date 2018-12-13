@@ -1,9 +1,9 @@
 ﻿using System.IO;
-using JupyterSharpPhaser.Syntax.Cell;
+using JupyterSharpParser.Syntax.Cell;
 using Markdig;
 using Markdig.Syntax;
 
-namespace JupyterSharpPhaser.Renderers.Html.Renderer.Cell
+namespace JupyterSharpParser.Renderers.Html.Renderer.Cell
 {
     public class MarkdownCellRenderer : HtmlObjectRenderer<MarkdownCell>
     {

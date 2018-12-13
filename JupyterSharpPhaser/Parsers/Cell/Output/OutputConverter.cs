@@ -1,10 +1,10 @@
 ﻿using System;
-using JupyterSharpPhaser.Extensions;
-using JupyterSharpPhaser.Parsers.Common;
-using JupyterSharpPhaser.Syntax.Cell.Output;
+using JupyterSharpParser.Extensions;
+using JupyterSharpParser.Parsers.Common;
+using JupyterSharpParser.Syntax.Cell.Output;
 using Newtonsoft.Json.Linq;
 
-namespace JupyterSharpPhaser.Parsers.Cell.Output
+namespace JupyterSharpParser.Parsers.Cell.Output
 {
     public class OutputConverter : JsonConverter<IOutput>
     {

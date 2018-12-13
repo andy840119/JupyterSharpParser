@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace JupyterSharpPhaser.Syntax.Cell.Output
+namespace JupyterSharpParser.Syntax.Cell.Output
 {
     [JsonConverter(typeof(StringEnumConverter))]
     public enum OutputType

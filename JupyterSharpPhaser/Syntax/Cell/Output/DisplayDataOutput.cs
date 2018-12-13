@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace JupyterSharpPhaser.Syntax.Cell.Output
+namespace JupyterSharpParser.Syntax.Cell.Output
 {
     public class DisplayDataOutput : IOutput, IJupyterObject
     {

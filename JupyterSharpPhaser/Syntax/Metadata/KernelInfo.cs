@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace JupyterSharpPhaser.Syntax.Metadata
+namespace JupyterSharpParser.Syntax.Metadata
 {
     public class KernelInfo
     {

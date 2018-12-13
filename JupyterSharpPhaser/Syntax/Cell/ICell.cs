@@ -1,7 +1,7 @@
-﻿using JupyterSharpPhaser.Parsers.Cell;
+﻿using JupyterSharpParser.Parsers.Cell;
 using Newtonsoft.Json;
 
-namespace JupyterSharpPhaser.Syntax.Cell
+namespace JupyterSharpParser.Syntax.Cell
 {
     [JsonConverter(typeof(CellConverter))]
     public interface ICell : IJupyterObject

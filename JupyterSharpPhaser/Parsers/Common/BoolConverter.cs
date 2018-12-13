@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace JupyterSharpPhaser.Parsers.Common
+namespace JupyterSharpParser.Parsers.Common
 {
     /// <summary>
     /// See :

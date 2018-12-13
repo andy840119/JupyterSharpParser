@@ -1,8 +1,8 @@
 ﻿using System.IO;
-using JupyterSharpPhaser.Syntax;
+using JupyterSharpParser.Syntax;
 using Newtonsoft.Json;
 
-namespace JupyterSharpPhaser.Renderers.Json
+namespace JupyterSharpParser.Renderers.Json
 {
     public class JsonRenderer : TextRendererBase
     {

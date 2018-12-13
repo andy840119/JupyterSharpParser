@@ -1,8 +1,8 @@
 ﻿using System;
 using System.IO;
-using JupyterSharpPhaser.Syntax;
+using JupyterSharpParser.Syntax;
 
-namespace JupyterSharpPhaser.Renderers
+namespace JupyterSharpParser.Renderers
 {
     /// <summary>
     /// A text based <see cref="IJupyterRenderer"/>.

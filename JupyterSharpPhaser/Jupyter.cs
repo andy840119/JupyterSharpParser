@@ -1,9 +1,9 @@
 ﻿using System;
-using JupyterSharpPhaser.Parsers;
-using JupyterSharpPhaser.Syntax;
+using JupyterSharpParser.Parsers;
+using JupyterSharpParser.Syntax;
 using Markdig;
 
-namespace JupyterSharpPhaser
+namespace JupyterSharpParser
 {
     public class Jupyter
     {

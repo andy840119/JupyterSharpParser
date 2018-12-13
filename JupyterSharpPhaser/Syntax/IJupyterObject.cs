@@ -1,4 +1,4 @@
-﻿namespace JupyterSharpPhaser.Syntax
+﻿namespace JupyterSharpParser.Syntax
 {
     public interface IJupyterObject
     {

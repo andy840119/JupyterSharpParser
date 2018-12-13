@@ -1,6 +1,6 @@
-﻿using JupyterSharpPhaser.Syntax.Cell;
+﻿using JupyterSharpParser.Syntax.Cell;
 
-namespace JupyterSharpPhaser.Renderers.Html.Renderer.Cell
+namespace JupyterSharpParser.Renderers.Html.Renderer.Cell
 {
     public class CodeCellRenderer : HtmlObjectRenderer<CodeCell>
     {

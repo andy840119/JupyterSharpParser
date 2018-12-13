@@ -1,6 +1,6 @@
-﻿using JupyterSharpPhaser.Syntax;
+﻿using JupyterSharpParser.Syntax;
 
-namespace JupyterSharpPhaser.Renderers.Html.Renderer
+namespace JupyterSharpParser.Renderers.Html.Renderer
 {
     public abstract class HtmlObjectRenderer<TObject> : JupyterObjectRenderer<HtmlRenderer, TObject>
         where TObject : IJupyterObject

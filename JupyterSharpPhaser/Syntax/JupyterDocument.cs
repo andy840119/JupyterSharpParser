@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using JupyterSharpPhaser.Syntax.Cell;
+using JupyterSharpParser.Syntax.Cell;
 using Newtonsoft.Json;
 
-namespace JupyterSharpPhaser.Syntax
+namespace JupyterSharpParser.Syntax
 {
     /// <summary>
     /// See : 

@@ -1,7 +1,7 @@
 ﻿using System;
-using JupyterSharpPhaser.Syntax;
+using JupyterSharpParser.Syntax;
 
-namespace JupyterSharpPhaser.Renderers
+namespace JupyterSharpParser.Renderers
 {
     public abstract class RendererBase : IJupyterRenderer
     {

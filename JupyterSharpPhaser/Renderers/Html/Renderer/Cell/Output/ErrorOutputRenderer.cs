@@ -1,6 +1,6 @@
-﻿using JupyterSharpPhaser.Syntax.Cell.Output;
+﻿using JupyterSharpParser.Syntax.Cell.Output;
 
-namespace JupyterSharpPhaser.Renderers.Html.Renderer.Cell.Output
+namespace JupyterSharpParser.Renderers.Html.Renderer.Cell.Output
 {
     public class ErrorOutputRenderer : HtmlObjectRenderer<ErrorOutput>
     {

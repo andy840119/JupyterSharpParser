@@ -1,6 +1,4 @@
 ﻿using System.IO;
-using JupyterSharpPhaser.Renderers.Json;
-using JupyterSharpPhaser.Syntax;
 using JupyterSharpPhaser.Test.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
