@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net461;netstandard2.0</TargetFrameworks>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.0.0</Version>
+    <Authors>andy840119</Authors>
+    <Company>andy840119</Company>
+    <Description>A Jupyter to Html Nuget package written in C#</Description>
+    <Copyright>ODOa</Copyright>
+    <PackageLicenseUrl>https://github.com/andy840119/JupyterSharpParser</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/andy840119/JupyterSharpParser</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/andy840119/JupyterSharpParser</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Jupyter Html Pdf Json Jupyter-to-html Jupyter-to-pdf parser andy840119</PackageTags>
+    <PackageReleaseNotes>1.0.0.0 : 
+Base implement.</PackageReleaseNotes>
+    <AssemblyName>JupyterSharpParser</AssemblyName>
+    <RootNamespace>JupyterSharpParser</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\JupyterDefaultStyle.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\JupyterDefaultStyle.css">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Markdig" Version="0.15.4" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="Select.HtmlToPdf.NetCore" Version="18.4.0" />
+  </ItemGroup>
+
+</Project>

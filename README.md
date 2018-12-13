@@ -1,10 +1,10 @@
-# JupyterSharpPhaser
+# JupyterSharpParser
 
-[![NuGet](https://img.shields.io/nuget/v/JupyterSharpPhaser.svg)](https://www.nuget.org/packages/JupyterSharpPhaser)
-[![NuGet](https://img.shields.io/nuget/dt/JupyterSharpPhaser.svg)](https://www.nuget.org/packages/JupyterSharpPhaser)
-[![NuGet](https://img.shields.io/badge/月子我婆-passed-ff69b4.svg)](https://github.com/andy840119/JupyterSharpPhaser)
+[![NuGet](https://img.shields.io/nuget/v/JupyterSharpParser.svg)](https://www.nuget.org/packages/JupyterSharpParser)
+[![NuGet](https://img.shields.io/nuget/dt/JupyterSharpParser.svg)](https://www.nuget.org/packages/JupyterSharpParser)
+[![NuGet](https://img.shields.io/badge/月子我婆-passed-ff69b4.svg)](https://github.com/andy840119/JupyterSharpParser)
 
-Jupyter phaser written in C#
+Jupyter parser written in C#
 
 Samlpe : 
 ```csharp
