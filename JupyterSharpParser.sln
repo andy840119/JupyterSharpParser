@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JupyterSharpParser", "JupyterSharpPhaser\JupyterSharpParser.csproj", "{313706FA-B7A2-4AC4-BCA0-27C2CCB7CBF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JupyterSharpParser", "JupyterSharpParser\JupyterSharpParser.csproj", "{313706FA-B7A2-4AC4-BCA0-27C2CCB7CBF1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JupyterSharpParser.Web", "JupyterSharpPhaser.Web\JupyterSharpParser.Web.csproj", "{DCDDD61F-4C67-4EF6-8B42-025F67131776}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JupyterSharpParser.Web", "JupyterSharpParser.Web\JupyterSharpParser.Web.csproj", "{DCDDD61F-4C67-4EF6-8B42-025F67131776}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JupyterSharpParser.Test", "JupyterSharpPhaser.Test\JupyterSharpParser.Test.csproj", "{74B2C780-7178-47D0-BF6B-9AC87F3E7520}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JupyterSharpParser.Test", "JupyterSharpParser.Test\JupyterSharpParser.Test.csproj", "{74B2C780-7178-47D0-BF6B-9AC87F3E7520}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
