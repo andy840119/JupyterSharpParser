@@ -1,6 +1,7 @@
 ﻿using System;
 using JupyterSharpPhaser.Syntax;
 using Markdig;
+using Markdig.Syntax;
 using Newtonsoft.Json;
 
 namespace JupyterSharpPhaser.Parsers

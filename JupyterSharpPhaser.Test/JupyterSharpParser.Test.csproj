@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\JupyterSharpPhaser\JupyterSharpPhaser.csproj" />
+    <ProjectReference Include="..\JupyterSharpPhaser\JupyterSharpParser.csproj" />
   </ItemGroup>
 
   <ItemGroup>
