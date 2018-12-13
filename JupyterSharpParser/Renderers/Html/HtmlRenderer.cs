@@ -92,7 +92,7 @@ namespace JupyterSharpParser.Renderers.Html
             if (string.IsNullOrEmpty(CssText))
             {
                 var assembly = Assembly.GetExecutingAssembly();
-                var resourceName = "JupyterSharpPhaser.Resources.JupyterDefaultStyle.css";
+                var resourceName = "JupyterSharpParser.Resources.JupyterDefaultStyle.css";
 
                 using (var stream = assembly.GetManifestResourceStream(resourceName))
                 using (var reader = new StreamReader(stream))
