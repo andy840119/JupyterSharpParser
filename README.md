@@ -1,5 +1,6 @@
 # JupyterSharpParser
-
+[![Build status](https://ci.appveyor.com/api/projects/status/awnpnnvevkj51b8m?svg=true)](https://ci.appveyor.com/project/andy840119/jupytersharpparser) 
+[![CodeFactor](https://www.codefactor.io/repository/github/andy840119/jupytersharpparser/badge)](https://www.codefactor.io/repository/github/andy840119/jupytersharpparser)
 [![NuGet](https://img.shields.io/nuget/v/JupyterSharpParser.svg)](https://www.nuget.org/packages/JupyterSharpParser)
 [![NuGet](https://img.shields.io/nuget/dt/JupyterSharpParser.svg)](https://www.nuget.org/packages/JupyterSharpParser)
 [![NuGet](https://img.shields.io/badge/月子我婆-passed-ff69b4.svg)](https://github.com/andy840119/JupyterSharpParser)
