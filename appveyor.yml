@@ -1,0 +1,12 @@
+clone_depth: 1
+version: '{build}'
+skip_tags: true
+image: Visual Studio 2017
+configuration: Debug
+before_build:
+  - cmd: CodeFileSanity
+  - cmd: nuget restore
+build:
+  project: JupyterSharpParser.sln
+  parallel: true
+  verbosity: minimal
