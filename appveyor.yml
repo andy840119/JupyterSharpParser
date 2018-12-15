@@ -4,7 +4,6 @@ skip_tags: true
 image: Visual Studio 2017
 configuration: Debug
 before_build:
-  - cmd: CodeFileSanity
   - cmd: nuget restore
 build:
   project: JupyterSharpParser.sln
