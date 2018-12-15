@@ -19,10 +19,10 @@ namespace JupyterSharpParser.Syntax.Cell
         [JsonProperty("source")]
         [JsonConverter(typeof(LinesConverter))]
         public Lines Source { get; set; }
-    }
 
-    public class RawCellMetaData
-    {
-        [JsonProperty("format")] public string Format { get; set; }
+        public class RawCellMetaData
+        {
+            [JsonProperty("format")] public string Format { get; set; }
+        }
     }
 }

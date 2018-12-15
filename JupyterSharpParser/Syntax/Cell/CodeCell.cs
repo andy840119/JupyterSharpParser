@@ -26,12 +26,12 @@ namespace JupyterSharpParser.Syntax.Cell
         public Lines Source { get; set; }
 
         [JsonProperty("outputs")] public IList<IOutput> Outputs { get; set; }
-    }
 
-    public class CodeCellMetaData
-    {
-        [JsonProperty("collapsed")] public bool Collapsed { get; set; }
+        public class CodeCellMetaData
+        {
+            [JsonProperty("collapsed")] public bool Collapsed { get; set; }
 
-        [JsonProperty("autoscroll")] public bool AutoScroll { get; set; }
+            [JsonProperty("autoscroll")] public bool AutoScroll { get; set; }
+        }
     }
 }

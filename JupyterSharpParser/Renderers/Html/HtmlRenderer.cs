@@ -85,7 +85,6 @@ namespace JupyterSharpParser.Renderers.Html
 
     <style type=""text/css"">";
             WriteLine(beforeHeader);
-
         }
 
         protected virtual void WriteCssPart()

@@ -24,7 +24,6 @@ namespace JupyterSharpParser.Web.Controllers
                 var lines = sr.ReadToEnd();
                 return lines;
             }
-
         }
 
         #endregion
@@ -49,7 +48,6 @@ namespace JupyterSharpParser.Web.Controllers
         [HttpPost]
         public IActionResult Preview(IFormFile file)
         {
-
             if (file == null)
             {
                 ModelState.AddModelError("Error!","File is empty.");
@@ -131,7 +129,7 @@ namespace JupyterSharpParser.Web.Controllers
                 }
 
                 //preview
-                return  Content(htmlText, "text/html", Encoding.UTF8);;
+                return  Content(htmlText, "text/html", Encoding.UTF8);
             }
 
             return RedirectToAction("Index");
