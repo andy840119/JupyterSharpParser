@@ -16,7 +16,6 @@ namespace JupyterSharpParser.Syntax.Cell.Output
         [JsonProperty("name")] public string Name { get; set; }
 
         [JsonProperty("text")]
-        [JsonConverter(typeof(LinesConverter))]
         public Lines Text { get; set; }
     }
 }

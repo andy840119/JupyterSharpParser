@@ -13,7 +13,6 @@ namespace JupyterSharpParser.Syntax.Cell.Output
         }
 
         [JsonProperty("text/plain")]
-        [JsonConverter(typeof(LinesConverter))]
         public Lines TextPlain { get; set; }
 
         [JsonProperty("image/png")] public string ImageData { get; set; }

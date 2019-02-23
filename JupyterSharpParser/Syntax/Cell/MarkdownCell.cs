@@ -18,7 +18,6 @@ namespace JupyterSharpParser.Syntax.Cell
         [JsonProperty("metadata")] public object Metadata { get; set; }
 
         [JsonProperty("source")]
-        [JsonConverter(typeof(LinesConverter))]
         public Lines Source { get; set; }
 
         [JsonIgnore] public MarkdownDocument MarkdownDocument => Markdown.Parse(Source.Text);

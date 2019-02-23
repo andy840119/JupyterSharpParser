@@ -18,7 +18,6 @@ namespace JupyterSharpParser.Syntax.Cell.Output
         [JsonProperty("evalue")] public string Evalue { get; set; }
 
         [JsonProperty("traceback")]
-        [JsonConverter(typeof(LinesConverter))]
         public Lines Traceback { get; set; }
     }
 }

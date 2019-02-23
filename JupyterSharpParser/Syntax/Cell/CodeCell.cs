@@ -22,7 +22,6 @@ namespace JupyterSharpParser.Syntax.Cell
         [JsonProperty("metadata")] public CodeCellMetaData MetaData { get; set; }
 
         [JsonProperty("source")]
-        [JsonConverter(typeof(LinesConverter))]
         public Lines Source { get; set; }
 
         [JsonProperty("outputs")] public IList<IOutput> Outputs { get; set; }
