@@ -25,24 +25,24 @@ namespace JupyterSharpParser.Parsers
         }
 
         /// <summary>
-        /// Parses the specified Jupyter text into an JupyterDocument <see cref="MarkdownDocument"/>
+        /// Parses the specified Jupyter text into an <see cref="JupyterDocument"/>
         /// </summary>
         /// <param name="text">A Jupyter text</param>
         /// <param name="pipeline">The pipeline used for the parsing.</param>
         /// <returns>An Jupyter document</returns>
-        /// <exception cref="System.ArgumentNullException">if reader variable is null</exception>
+        /// <exception cref="ArgumentNullException">if reader variable is null</exception>
         public static JupyterDocument Parse(string text, MarkdownPipeline pipeline = null)
         {
             if (text == null) throw new ArgumentNullException(nameof(text));
             pipeline = pipeline ?? new MarkdownPipelineBuilder().Build();
 
             // Perform the parsing
-            var markdownParser = new JupyterParser(text, pipeline);
-            return markdownParser.Parse();
+            var jupyterParser = new JupyterParser(text, pipeline);
+            return jupyterParser.Parse();
         }
 
         /// <summary>
-        /// Parses the current json text into a Jupyter document <see cref="MarkdownDocument"/>.
+        /// Parses the current json text into a <see cref="JupyterDocument"/>.
         /// </summary>
         /// <returns>A document instance</returns>
         private JupyterDocument Parse()
